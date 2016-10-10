@@ -28,6 +28,33 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
+
+  var DengueCaseCentral = new google.maps.KmlLayer({
+     url: 'https://firebasestorage.googleapis.com/v0/b/thediscoverers-99fb8.appspot.com/o/DengueCaseCentral.kml?alt=media&token=add8aa82-161a-489c-8655-bbda0bc48b03',
+     map: map
+   });
+
+   var DengueCaseNortheastArea = new google.maps.KmlLayer({
+      url: 'https://firebasestorage.googleapis.com/v0/b/thediscoverers-99fb8.appspot.com/o/DengueCaseNortheastArea.kml?alt=media&token=99ef32bb-7568-4626-9844-c5c87ee81009',
+      map: map
+    });
+
+
+    var DengueCaseNorthwest = new google.maps.KmlLayer({
+       url: 'https://firebasestorage.googleapis.com/v0/b/thediscoverers-99fb8.appspot.com/o/DengueCaseNorthwest.kml?alt=media&token=d1e987da-6299-4130-a260-32241c7de035',
+       map: map
+     });
+
+     var DengueSouthEast = new google.maps.KmlLayer({
+        url: 'https://firebasestorage.googleapis.com/v0/b/thediscoverers-99fb8.appspot.com/o/DengueCaseSoutheast.kml?alt=media&token=803f994b-b7e8-45c9-9f1f-71bb0414f5e0',
+        map: map
+      });
+
+      var DengueSouthWest = new google.maps.KmlLayer({
+         url: 'https://firebasestorage.googleapis.com/v0/b/thediscoverers-99fb8.appspot.com/o/DengueCaseSouthwest.kml?alt=media&token=eb0a03ae-d3df-422c-9f48-a771089fa96b',
+         map: map
+       });
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -36,4 +63,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: The Geolocation service failed.' :
     'Error: Your browser doesn\'t support geolocation.');
 }
-
