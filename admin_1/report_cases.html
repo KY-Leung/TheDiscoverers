@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--
+<!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
 Version: 4.5.6
 Author: KeenThemes
@@ -33,6 +33,10 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS (WIZARD)-->
+        <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
@@ -279,7 +283,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="report_cases.html" class="nav-link ">
+                                    <a href="report_incident.html" class="nav-link ">
                                         <i class="icon-graph"></i>
                                         <span class="title">Report Cases</span>
                                     </a>
@@ -439,44 +443,252 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <!-- END THEME PANEL -->
                     <!-- END PAGE HEADER-->
-                    <!-- Google Map API -->
-                    <div id="googlemap"></div>
                     <div class="row">
-                        <div class="col-md-8 col-sm-6">
-                            <div class="portlet light ">
+                        <div class="col-md-12">
+                            <div class="m-heading-1 border-green m-bordered">
+                                <h3>Reporting Dengue & Zika Cases</h3>
+                                <p> All the information provided must be accurate and true.</p>
+                                <p> Any falsification of information on this application may result in your being excluded from the program as soon as it is discovered. </p>
+                            </div>
+                            <div class="portlet light bordered" id="form_wizard_1">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <span class="caption-subject bold uppercase font-dark">Revenue</span>
-                                        <span class="caption-helper">distance stats...</span>
+                                        <i class=" icon-layers font-red"></i>
+                                        <span class="caption-subject font-red bold uppercase"> Reporting Cases -
+                                            <span class="step-title"> Step 1 of 2 </span>
+                                        </span>
                                     </div>
                                     <div class="actions">
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-cloud-upload"></i>
                                         </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-wrench"></i>
                                         </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-trash"></i>
                                         </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#"> </a>
                                     </div>
                                 </div>
-                                <div class="portlet-body">
-                                    <div id="chartdiv"></div>
+                                <div class="portlet-body form">
+                                    <form class="form-horizontal" action="#" id="submit_form" method="POST">
+                                        <div class="form-wizard">
+                                            <div class="form-body">
+                                                <ul class="nav nav-pills nav-justified steps">
+                                                    <li>
+                                                        <a href="#tab1" data-toggle="tab" class="step">
+                                                            <span class="number"> 1 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Reporting </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#tab2" data-toggle="tab" class="step">
+                                                            <span class="number"> 2 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Particulars </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#tab4" data-toggle="tab" class="step">
+                                                            <span class="number"> 3 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Confirmation </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div id="bar" class="progress progress-striped" role="progressbar">
+                                                    <div class="progress-bar progress-bar-success"> </div>
+                                                </div>
+                                                <div class="tab-content">
+                                                    <div class="alert alert-danger display-none">
+                                                        <button class="close" data-dismiss="alert"></button> You have some form errors. Please check below. </div>
+                                                    <div class="alert alert-success display-none">
+                                                        <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
+                                                    <div class="tab-pane active" id="tab1">
+                                                        <h3 class="block">Provide your profile details</h3>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Type of Case
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-4">
+                                                                <div class="radio-list">
+                                                                    <label>
+                                                                        <input type="radio" name="case" value="D" data-title="Dengue" /> Dengue </label>
+                                                                    <label>
+                                                                        <input type="radio" name="case" value="Z" data-title="Zika" /> Zika </label>
+                                                                </div>
+                                                                <div id="form_gender_error"> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Cluster
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-4">
+                                                                <select name="cluster" id="country_list" class="form-control">
+                                                                    <option value=""></option>
+                                                                    <option value="AF">Bedok</option>
+                                                                    <option value="AL">Changi</option>
+                                                                    <option value="DZ">Tampines</option>
+                                                                    <option value="DZ">Pasir Ris</option>
+                                                                    <option value="DZ">Paya Lebar</option>
+                                                                    <option value="DZ">Punggol</option>
+                                                                    <option value="DZ">Sengkang</option>
+                                                                    <option value="DZ">Hougang</option>
+                                                                    <option value="DZ">Serangoon</option>
+                                                                    <option value="DZ">Bishan</option>
+                                                                    <option value="DZ">Toa Payoh</option>
+                                                                    <option value="DZ">Geylang</option>
+                                                                    <option value="DZ">Marine Parade</option>
+                                                                    <option value="DZ">Kallang</option>
+                                                                    <option value="DZ">Novena</option>
+                                                                    <option value="DZ">Newton</option>
+                                                                    <option value="DZ">Tanglin</option>
+                                                                    <option value="DZ">Orchard</option>
+                                                                    <option value="DZ">Orchard</option>
+                                                                    <option value="DZ">Outram</option>
+                                                                    <option value="DZ">Marina East</option>
+                                                                    <option value="DZ">Marina South</option>
+                                                                    <option value="DZ">Sentosa</option>
+                                                                    <option value="DZ">Bukit Merah</option>
+                                                                    <option value="DZ">Queenstown</option>
+                                                                    <option value="DZ">Clementi</option>
+                                                                    <option value="DZ">Bukit Timah</option>
+                                                                    <option value="DZ">Ang Mo Kio</option>
+                                                                    <option value="DZ">Seletar</option>
+                                                                    <option value="DZ">Yishun</option>
+                                                                    <option value="DZ">Sembawang</option>
+                                                                    <option value="DZ">Woodlands</option>
+                                                                    <option value="DZ">Mandai</option>
+                                                                    <option value="DZ">Lim Chu Kang</option>
+                                                                    <option value="DZ">Sungei Kadut</option>
+                                                                    <option value="DZ">Choa CHu Kang</option>
+                                                                    <option value="DZ">Bukit Panjang</option>
+                                                                    <option value="DZ">Bukit Batok</option>
+                                                                    <option value="DZ">Jurong East</option>
+                                                                    <option value="DZ">Jurong West</option>
+                                                                    <option value="DZ">Pioneer</option>
+                                                                    <option value="DZ">Boon Lay</option>
+                                                                    <option value="DZ">Tuas</option>
+                                                                    <option value="DZ">Jurong Island</option>
+                                                                </select>
+                                                                <span class="help-block"> Provide reporting case cluster </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Postal Code
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control" name="postalCode" />
+                                                                <span class="help-block"> Provide reporting case postal code  </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Remarks</label>
+                                                            <div class="col-md-4">
+                                                                <textarea class="form-control" rows="3" name="remarks"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane" id="tab2">
+                                                        <h3 class="block">Provide your particulars</h3>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Fullname
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control" name="fullname" />
+                                                                <span class="help-block"> Provide your fullname </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Phone Number
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control" name="phone" />
+                                                                <span class="help-block"> Provide your phone number </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Email
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control" name="email" />
+                                                                <span class="help-block"> Provide your email address </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane" id="tab4">
+                                                        <h3 class="block">Confirmation</h3>
+                                                        <h4 class="form-section">Reporting</h4>
+                                                         <div class="form-group">
+                                                            <label class="control-label col-md-3">Type of case:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="case"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Cluster:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="cluster"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Postal Code:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="postalCode"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Remarks:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="remarks"> </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <h4 class="form-section">Particulars</h4>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Fullname:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="fullname"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Phone:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="phone"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Email:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="email"> </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <a href="javascript:;" class="btn default button-previous">
+                                                            <i class="fa fa-angle-left"></i> Back </a>
+                                                        <a href="javascript:;" class="btn btn-outline green button-next"> Continue
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </a>
+                                                        <a href="javascript:;" class="btn green button-submit"> Submit
+                                                            <i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="portlet light ">
-                                <!-- Start of Testing -->
-                            	<h1 id="omg"> OMG HERE</h1>
-                                <button id="button123" onclick="writeUserData('0001', 'Peter Pan', 'PeterPan@wtf.com', 'http://www.google.com')"></button>
-                                <button id="button123" onclick="usernameOn()"></button>
-                                <!-- End of Testing -->
-                                <!--
-                                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/Dengue" data-widget-id="780830161646161920">#Dengue Tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                                -->
                             </div>
                         </div>
                     </div>
@@ -1049,7 +1261,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END CONTAINER -->
         <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script>
+<script src="../assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -1060,9 +1272,18 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS (WIZARD)-->
+        <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS (WIZARD)-->
+        <script src="../assets/pages/scripts/form-wizard.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
         <script src="../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
@@ -1075,30 +1296,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
         <script src="../assets/layouts/layout/scripts/firebase.js" type="text/javascript"></script>
         <!-- END FireBase API SCRIPTS -->
-        <!-- BEGIN GOOGLE API SCRIPTS -->
-        <script src="../assets/layouts/layout/scripts/googlemap.js" type="text/javascript"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJAYHfBjbQDazfTlJntF2ucJhRY6LO_MA&callback=initMap"></script>
-        <!-- END GOOGLE API SCRIPTS -->
-        <!-- BEGIN AMCHARTS API SCRIPTS -->
-        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-        <script src="../assets/layouts/layout/scripts/amchart.js" type="text/javascript"></script>
-        <!-- END AMCHARTS API SCRIPTS -->
-
-    <script>    function initMap() {
-  var map = new google.maps.Map(document.getElementById('googlemap'), {
-    zoom: 11,
-
-  });
-
-  var ctaLayer = new google.maps.KmlLayer({
-     url: 'https://firebasestorage.googleapis.com/v0/b/thediscoverers-99fb8.appspot.com/o/Dengue.kml?alt=media&token=45543b7f-e3b1-4660-9256-62e453ff7247',
-    map: map
-  });
-}</script>
     </body>
 
 </html>
