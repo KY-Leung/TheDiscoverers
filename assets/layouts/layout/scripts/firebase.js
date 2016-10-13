@@ -23,18 +23,42 @@ function writeUserData(userId, name, email, imageUrl) {
 
 // To read: On (Listen for value events)
 function usernameOn(){
-  var starCountRef = firebase.database().ref('/users/customer/0001');
+  var i;
+  for(i=1; i < 4 ; i++)
+  {
+  var starCountRef = firebase.database().ref('/users/customer/000' + i);
   starCountRef.on('value', function(snapshot) {
-    document.getElementById("omg").innerHTML = snapshot.val().username;
+    document.getElementById("L" + i).innerHTML = snapshot.val().username;
   });
+
+}
 }
 
 // To read: Once (Read data once)
 function useremailOnce(){
-  return firebase.database().ref('/users/customer/456').once('value').then(function(snapshot) {
+  return firebase.database().ref('/users/customer/0001').once('value').then(function(snapshot) {
     document.getElementById("omg").innerHTML = snapshot.val().email;
     //window.alert(snapshot.val().email);
   });
 }
+
+
+
+// function getArray(){
+
+
+
+
+
+//  for(i=0 ; i< 2 ; i++)
+//   {
+//   // var starCountRef = firebase.database().ref('/testuser/' + i);
+//   // starCountRef.on('value', function(snapshot) {
+//   // ar[i] = snapshot.val().name;
+// }
+// });
+
+
+
 
 //Refer to https://firebase.google.com/docs/database/web/read-and-write for more real-time DB functions
