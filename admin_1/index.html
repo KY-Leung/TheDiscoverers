@@ -47,8 +47,12 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/pages/scripts/toastr.css" rel="stylesheet" type="text/css" /> <!--added toaster-->
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
+        <link rel="shortcut icon" href="favicon.ico" /> 
+
+
+    </head>
     <!-- END HEAD -->
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
@@ -76,10 +80,12 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!-- BEGIN NOTIFICATION DROPDOWN -->
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <i class="icon-bell"></i>
                                 <span class="badge badge-default"> 7 </span>
                             </a>
+
                             <ul class="dropdown-menu">
                                 <li class="external">
                                     <h3>
@@ -197,20 +203,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <span class="badge badge-danger"> 3 </span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="app_todo.html">
-                                        <i class="icon-rocket"></i> My Tasks
-                                        <span class="badge badge-success"> 7 </span>
+                                <li id="logoutbtn2">
+                                    <a>
+                                        <i class="icon-rocket"></i> Log Out
                                     </a>
-                                </li>
-                                <li class="divider"> </li>
-                                <li>
-                                    <a href="page_user_lock_1.html">
-                                        <i class="icon-lock"></i> Lock Screen </a>
-                                </li>
-                                <li>
-                                    <a href="page_user_login_1.html">
-                                        <i class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
                         </li>
@@ -228,6 +224,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- END TOP NAVIGATION MENU -->
             </div>
             <!-- END HEADER INNER -->
+
         </div>
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
@@ -335,18 +332,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <i class="icon-puzzle"></i>
                                 <span class="title">Appointment</span>
                                 <span class="arrow"></span>
-                                <span class="badge badge-danger">2</span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item  ">
-                                    <a href="components_date_time_pickers.html" class="nav-link ">
+                                    <a href="appointment_new.html" class="nav-link ">
                                         <span class="title">New</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="components_color_pickers.html" class="nav-link ">
+                                    <a href="appointment_manage.html" class="nav-link ">
                                         <span class="title">Manage</span>
-                                        <span class="badge badge-danger">2</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="appointment_history.html" class="nav-link ">
+                                        <span class="title">History</span>
                                     </a>
                                 </li>
                             </ul>
@@ -4483,16 +4483,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            <div class="page-footer-inner"> 2014 &copy; Metronic by keenthemes.
-                <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
-            </div>
-            <div class="scroll-to-top">
-                <i class="icon-arrow-up"></i>
-            </div>
-        </div>
-        <!-- END FOOTER -->
+        
         <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
 <script src="../assets/global/plugins/excanvas.min.js"></script> 
@@ -4543,12 +4534,22 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="../assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
+        <script src="../assets/pages/scripts/indexpage.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
         <script src="../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
         <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
+        <!-- BEGIN FireBase API SCRIPTS -->
+        <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
+        <script src="../assets/layouts/layout/scripts/firebase.js" type="text/javascript"></script>
+        <!-- END FireBase API SCRIPTS -->
+        <script src="../assets/pages/scripts/toastr.js"></script>
+        <script src="../assets/pages/scripts/index.js" type="text/javascript"></script>
     </body>
 
 </html>
