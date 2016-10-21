@@ -258,19 +258,47 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="layout_blank_page.html" class="nav-link ">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">All</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item start ">
-                                    <a class="nav-link ">
-                                        <i class="icon-bulb"></i>
+
+
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="icon-graph"></i>
                                         <span class="title">Dengue</span>
-                                        <span class="badge badge-success">1</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow open"></span>
                                     </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item  ">
+                                            <a onclick="dengueCentral()" class="nav-link ">
+                                                <span class="title">Central</span>
+
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a onclick="dengueNortheast()" class="nav-link ">
+                                                <span class="title">Northeast</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  ">
+                                            <a onclick="dengueNorthwest()" class="nav-link ">
+                                                <span class="title">Northwest</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  ">
+                                            <a onclick="dengueSoutheast()" class="nav-link ">
+                                                <span class="title">Southeast</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  ">
+                                            <a onclick="dengueSouthwest()" class="nav-link ">
+                                                <span class="title">SouthWest</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
+
                                 <li class="nav-item start ">
                                     <a class="nav-link ">
                                         <i class="icon-graph"></i>
@@ -293,34 +321,30 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
+
                                 <li class="nav-item  ">
                                     <a class="nav-link ">
-                                        <span class="title">All</span>
+                                        <span class="title" onclick = "chas()">CHAS Clinics</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a class="nav-link ">
-                                        <span class="title">CHAS Clinics</span>
+                                        <span class="title" onclick="clinic()">Polyclinic</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a class="nav-link ">
-                                        <span class="title">Pharmacists</span>
+                                        <span class="title" onclick ="breastscreening()">Breast Screening</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a class="nav-link ">
-                                        <span class="title">Breast Screening</span>
+                                        <span class="title" onclick="bloodbank()">Bloodbank</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
                                     <a class="nav-link ">
-                                        <span class="title">Bloodbank</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a class="nav-link ">
-                                        <span class="title">Quit Centres</span>
+                                        <span class="title" onclick="quitCentre()">Quit Centres</span>
                                     </a>
                                 </li>
                             </ul>
@@ -1102,15 +1126,131 @@ License: You must have a valid license purchased only from themeforest(the above
         <script type="text/javascript">
 
        var table = firebase.database().ref('/locations/bloodbank');
-   var count = 0;
-table.on('value', function(snapshot) {
+       var count = 0;
+       table.on('value', function(snapshot) {
 
-   snapshot.forEach(function() {
-       count++;
-   });
+         snapshot.forEach(function() {
+           count++;
+         });
    //count is now safe to use.
-   document.getElementById("L1").innerHTML = count;
-});
+
+          });
+
+
+          var table = firebase.database().ref('/locations/breastscreening');
+          var breastcount = 0;
+          table.on('value', function(snapshot) {
+
+            snapshot.forEach(function() {
+              breastcount++;
+            });
+      //count is now safe to use.
+
+             });
+
+
+          var table = firebase.database().ref('/locations/breastscreening');
+          var breastcount = 0;
+          table.on('value', function(snapshot) {
+
+              snapshot.forEach(function() {
+                breastcount++;
+               });
+         //count is now safe to use.
+
+                });
+
+
+                var table = firebase.database().ref('/locations/chas');
+                var chascount = 0;
+                table.on('value', function(snapshot) {
+
+                    snapshot.forEach(function() {
+                      chascount++;
+                     });
+               //count is now safe to use.
+
+                      });
+
+                      var table = firebase.database().ref('/locations/quitcentres');
+                      var quitcount = 0;
+                      table.on('value', function(snapshot) {
+
+                          snapshot.forEach(function() {
+                            quitcount++;
+                           });
+                     //count is now safe to use.
+
+                            });
+
+                            var table = firebase.database().ref('/locations/cervicalscreening');
+                            var cliniccount = 0;
+                            table.on('value', function(snapshot) {
+
+                                snapshot.forEach(function() {
+                                  cliniccount++;
+                                 });
+                           //count is now safe to use.
+                                  });
+
+                                  var table = firebase.database().ref('/DengueCases/Central');
+                                  var DCcount = 0;
+                                  table.on('value', function(snapshot) {
+
+                                      snapshot.forEach(function() {
+                                        DCcount++;
+                                       });
+                                 //count is now safe to use.
+
+                                        });
+
+                                        var table = firebase.database().ref('/DengueCases/Northeast');
+                                        var DNEcount = 0;
+                                        table.on('value', function(snapshot) {
+
+                                            snapshot.forEach(function() {
+                                              DNEcount++;
+                                             });
+                                       //count is now safe to use.
+
+                                              });
+
+                                              var table = firebase.database().ref('/DengueCases/Northwest');
+                                              var DNWcount = 0;
+                                              table.on('value', function(snapshot) {
+
+                                                  snapshot.forEach(function() {
+                                                    DNWcount++;
+                                                   });
+                                             //count is now safe to use.
+
+                                                    });
+
+
+                                                    var table = firebase.database().ref('/DengueCases/Southeast');
+                                                    var DSEcount = 0;
+                                                    table.on('value', function(snapshot) {
+
+                                                        snapshot.forEach(function() {
+                                                          DSEcount++;
+                                                         });
+                                                   //count is now safe to use.
+
+                                                          });
+
+
+                                                          var table = firebase.database().ref('/DengueCases/Southwest');
+                                                          var DSWcount = 0;
+                                                          table.on('value', function(snapshot) {
+
+                                                              snapshot.forEach(function() {
+                                                                DSWcount++;
+                                                               });
+                                                         //count is now safe to use.
+
+                                                                });
+
+
 
 
 
@@ -1123,7 +1263,7 @@ function locate()
     div: '#map',
     lat: 1.3017,
     lng: 103.8382,
-    zoom : 12
+    zoom : 15
   });
   GMaps.geolocate({
   success: function(position){
@@ -1153,7 +1293,7 @@ map = new GMaps({
   div: '#map',
   lat: 1.3017,
   lng: 103.8382,
-  zoom : 12
+  zoom : 15
 });
 
 GMaps.geolocate({
@@ -1182,13 +1322,11 @@ alert("Your browser does not support geolocation");
 
   ///////////////////////////
 
- </script>
-  <script type="text/javascript">
-
  function bloodbank(){
 
 
    locate();
+
 
    var i;
    for(i=0; i < count ; i++)
@@ -1211,22 +1349,21 @@ alert("Your browser does not support geolocation");
             }
 
 
-  function BScreen(){
+  function breastscreening(){
 
             locate();
 
 
               var i;
-              for(i=0; i < 14 ; i++)
+              for(i=0; i < breastcount ; i++)
               {
               var starCountRef = firebase.database().ref('/locations/breastscreening/' + i);
               starCountRef.on('value', function(snapshot) {
 
-
                 map.addMarker({
                   lat: snapshot.val().latitude,
                   lng: snapshot.val().longitude,
-                  title: 'Dengue1',
+                  title: 'Breasts Screening',
                   infoWindow: {
                     content: '<p>' + snapshot.val().name + '</p>'
 
@@ -1235,6 +1372,208 @@ alert("Your browser does not support geolocation");
                            });
                          }
                        }
+
+
+
+function chas()
+{
+  locate();
+
+
+    var i;
+    for(i=0; i < chascount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/locations/chas/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'CHAS',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+
+}
+
+function quitCentre()
+{
+  locate();
+
+
+    var i;
+    for(i=0; i < quitcount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/locations/quitcentres/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Quit Centres',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+}
+
+
+function clinic()
+{
+  locate();
+
+    var i;
+    for(i=0; i < cliniccount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/locations/cervicalscreening/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Clinic',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+}
+
+
+
+function dengueCentral()
+{
+  locate();
+
+    var i;
+    for(i=0; i < DCcount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/DengueCases/Central/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Clinic',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+
+}
+
+function dengueNortheast()
+{
+  locate();
+
+    var i;
+    for(i=0; i < DNEcount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/DengueCases/Northeast/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Clinic',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+
+}
+
+
+function dengueNorthwest()
+{
+  locate();
+
+    var i;
+    for(i=0; i < DNWcount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/DengueCases/Northwest/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Clinic',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+
+}
+
+
+function dengueSoutheast()
+{
+  locate();
+
+    var i;
+    for(i=0; i < DSEcount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/DengueCases/Southeast/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Clinic',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+
+}
+
+
+function dengueSouthwest()
+{
+  locate();
+
+    var i;
+    for(i=0; i < DSWcount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/DengueCases/Southwest/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Clinic',
+        infoWindow: {
+          content: '<p>' + snapshot.val().name + '</p>'
+
+                     }
+                   });
+                 });
+               }
+
+}
 </script>
 <!-- <script type="text/javascript">
 //   // Get a database reference to our posts
