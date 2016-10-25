@@ -375,8 +375,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class=" icon-layers font-red"></i>
-                                        <span class="caption-subject font-red bold uppercase"> Reporting Cases -
-                                            <span class="step-title"> Step 1 of 2 </span>
+                                        <span class="caption-subject font-red bold uppercase"> Reporting Case -
+                                            <span class="step-title"> Step 1 of 3 </span>
                                         </span>
                                     </div>
                                     <div class="actions">
@@ -400,12 +400,19 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <a href="#tab1" data-toggle="tab" class="step">
                                                             <span class="number"> 1 </span>
                                                             <span class="desc">
-                                                                <i class="fa fa-check"></i> Reporting </span>
+                                                                <i class="fa fa-check"></i> Case Location </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#tab2" data-toggle="tab" class="step">
+                                                            <span class="number"> 2 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Case Details </span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="#tab4" data-toggle="tab" class="step">
-                                                            <span class="number"> 2 </span>
+                                                            <span class="number"> 3 </span>
                                                             <span class="desc">
                                                                 <i class="fa fa-check"></i> Confirmation </span>
                                                         </a>
@@ -420,21 +427,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="alert alert-success display-none">
                                                         <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
                                                     <div class="tab-pane active" id="tab1">
-                                                        <h3 class="block">Provide your profile details</h3>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Type of Case
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-4">
-                                                                <div class="radio-list">
-                                                                    <label>
-                                                                        <input type="radio" name="case" value="D" data-title="Dengue" /> Dengue </label>
-                                                                    <label>
-                                                                        <input type="radio" name="case" value="Z" data-title="Zika" /> Zika </label>
-                                                                </div>
-                                                                <div id="form_case_error"> </div>
-                                                            </div>
-                                                        </div>
+                                                        <h3 class="block">Please provide reporting case location</h3>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Cluster
                                                                 <span class="required"> * </span>
@@ -500,16 +493,26 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 <span class="help-block"> Please mark your location. </span>
                                                             </div>
                                                         </div>
-
-
-
-
+                                                        <div class="form-group">
+                                                        	<div id="map" style=" height: 500px;"></div>
+                                                    	</div>
+                                                    </div>
+                                                    <div class="tab-pane" id="tab2">
+                                                        <h3 class="block">Provide reporting case details </h3>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Type of Case
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-4">
+                                                                <div class="radio-list">
+                                                                    <label>
+                                                                        <input type="radio" name="case" value="D" data-title="Dengue" /> Dengue </label>
+                                                                    <label>
+                                                                        <input type="radio" name="case" value="Z" data-title="Zika" /> Zika </label>
+                                                                </div>
+                                                                <div id="form_case_error"> </div>
+                                                            </div>
                                                         </div>
-                                                          <div class="form-group">
-                                                        <div id="map" style=" height: 500px;"></div>
-                                                      </div>
-
-
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Remarks</label>
                                                             <div class="col-md-4">
@@ -519,20 +522,33 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </div>
                                                     <div class="tab-pane" id="tab4">
                                                         <h3 class="block">Confirmation</h3>
-                                                        <h4 class="form-section">Reporting</h4>
-                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3">Type of case:</label>
-                                                            <div class="col-md-4">
-                                                                <p class="form-control-static" data-display="case"> </p>
-                                                            </div>
-                                                        </div>
+                                                        <h4 class="form-section">Case Location</h4>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Cluster:</label>
                                                             <div class="col-md-4">
                                                                 <p class="form-control-static" data-display="cluster"> </p>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Latitude:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="lat"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Longitude:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="long"> </p>
+                                                            </div>
+                                                        </div>
 
+                                                        <h4 class="form-section">Case Details</h4>
+                                                         <div class="form-group">
+                                                            <label class="control-label col-md-3">Type of case:</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static" data-display="case"> </p>
+                                                            </div>
+                                                        </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Remarks:</label>
                                                             <div class="col-md-4">
