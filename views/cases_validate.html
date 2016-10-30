@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--
+<!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
 Version: 4.5.6
 Author: KeenThemes
@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <head>
         <meta charset="utf-8" />
-        <title>One-stop health Home </title>
+        <title>Validate Cases</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -33,10 +33,20 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../public/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="../public/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS (WIZARD)-->
+        <link href="../public/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="../public/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS (DIALOG)-->
+        <script src="../public/assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="../public/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="../public/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS (DIALOG)-->
+        <script src="../public/assets/pages/js/ui-bootbox.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="../public/assets/themes/css/layout.min.css" rel="stylesheet" type="text/css" />
         <link href="../public/assets/themes/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
@@ -251,131 +261,106 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <!-- END SIDEBAR TOGGLER BUTTON -->
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item start active open">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-call-end"></i>
                                 <span class="title">Cases</span>
+                                <span class="selected"></span>
                                 <span class="arrow"></span>
+                                <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li class="nav-item start">
                                     <a href="cases_manage.html" class="nav-link ">
                                         <span class="title">Manage</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item start active open">
+                        <li class="nav-item">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-globe"></i>
                                 <span class="title">Diseases</span>
-                                <span class="selected"></span>
                                 <span class="arrow"></span>
-                                <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item start active open">
-                                    <a href="javascript:;" class="nav-link nav-toggle">
-                                        <span class="title">Dengue</span>
-                                        <span class="selected"></span>
+                                <li class="nav-item ">
+                                    <a href="map.html" class="nav-link ">
+                                        <span class="title">All</span>
                                     </a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item start">
-                                            <a onclick="dengueCentral()" class="nav-link ">
-                                                <span class="title">Central</span>
-
-                                            </a>
-                                        </li>
-                                        <li class="nav-item start">
-                                            <a onclick="dengueNortheast()" class="nav-link ">
-                                                <span class="title">Northeast</span>
-                                                <span class="selected"></span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item start">
-                                            <a onclick="dengueNorthwest()" class="nav-link ">
-                                                <span class="title">Northwest</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item start">
-                                            <a onclick="dengueSoutheast()" class="nav-link ">
-                                                <span class="title">Southeast</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item start">
-                                            <a onclick="dengueSouthwest()" class="nav-link ">
-                                                <span class="title">SouthWest</span>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
-                                <li class="nav-item start">
+                                <li class="nav-item">
+                                    <a class="nav-link ">
+                                        <span class="title">Dengue</span>
+                                        <span class="badge badge-success">1</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link ">
                                         <span class="title">Zika Virus</span>
                                         <span class="badge badge-danger">5</span>
                                     </a>
                                 </li>
-                                <li class="nav-item start">
+                                <li class="nav-item">
                                     <a href="cases_report.html" class="nav-link ">
                                         <span class="title">Report Cases</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item  ">
+                        <li class="nav-item">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title">Clinics</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a class="nav-link ">
-                                        <span class="title" onclick = "chas()">CHAS Clinics</span>
+                                        <span class="title">CHAS Clinics</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a class="nav-link ">
-                                        <span class="title" onclick="clinic()">Polyclinic</span>
+                                        <span class="title">Pharmacists</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a class="nav-link ">
-                                        <span class="title" onclick ="breastscreening()">Breast Screening</span>
+                                        <span class="title">Breast Screening</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a class="nav-link ">
-                                        <span class="title" onclick="bloodbank()">Bloodbank</span>
+                                        <span class="title">Bloodbank</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a class="nav-link ">
-                                        <span class="title" onclick="quitCentre()">Quit Centres</span>
+                                        <span class="title">Quit Centres</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item  ">
+                        <li class="nav-item">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-calendar"></i>
                                 <span class="title">Appointment</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="appointment_new.html" class="nav-link ">
                                         <span class="title">New</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="appointment_manage.html" class="nav-link ">
                                         <span class="title">Manage</span>
                                         <span class="badge badge-danger">2</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="appointment_history.html" class="nav-link ">
                                         <span class="title">History</span>
                                     </a>
@@ -392,132 +377,102 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <!-- BEGIN PAGE HEADER-->
-                    <!-- BEGIN THEME PANEL -->
-                    <div class="theme-panel hidden-xs hidden-sm">
-                        <div class="toggler"> </div>
-                        <div class="toggler-close"> </div>
-                        <div class="theme-options">
-                            <div class="theme-option theme-colors clearfix">
-                                <span> THEME COLOR </span>
-                                <ul>
-                                    <li class="color-default current tooltips" data-style="default" data-container="body" data-original-title="Default"> </li>
-                                    <li class="color-darkblue tooltips" data-style="darkblue" data-container="body" data-original-title="Dark Blue"> </li>
-                                    <li class="color-blue tooltips" data-style="blue" data-container="body" data-original-title="Blue"> </li>
-                                    <li class="color-grey tooltips" data-style="grey" data-container="body" data-original-title="Grey"> </li>
-                                    <li class="color-light tooltips" data-style="light" data-container="body" data-original-title="Light"> </li>
-                                    <li class="color-light2 tooltips" data-style="light2" data-container="body" data-html="true" data-original-title="Light 2"> </li>
-                                </ul>
-                            </div>
-                            <div class="theme-option">
-                                <span> Theme Style </span>
-                                <select class="layout-style-option form-control input-sm">
-                                    <option value="square" selected="selected">Square corners</option>
-                                    <option value="rounded">Rounded corners</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Layout </span>
-                                <select class="layout-option form-control input-sm">
-                                    <option value="fluid" selected="selected">Fluid</option>
-                                    <option value="boxed">Boxed</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Header </span>
-                                <select class="page-header-option form-control input-sm">
-                                    <option value="fixed" selected="selected">Fixed</option>
-                                    <option value="default">Default</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Top Menu Dropdown</span>
-                                <select class="page-header-top-dropdown-style-option form-control input-sm">
-                                    <option value="light" selected="selected">Light</option>
-                                    <option value="dark">Dark</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Sidebar Mode</span>
-                                <select class="sidebar-option form-control input-sm">
-                                    <option value="fixed">Fixed</option>
-                                    <option value="default" selected="selected">Default</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Sidebar Menu </span>
-                                <select class="sidebar-menu-option form-control input-sm">
-                                    <option value="accordion" selected="selected">Accordion</option>
-                                    <option value="hover">Hover</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Sidebar Style </span>
-                                <select class="sidebar-style-option form-control input-sm">
-                                    <option value="default" selected="selected">Default</option>
-                                    <option value="light">Light</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Sidebar Position </span>
-                                <select class="sidebar-pos-option form-control input-sm">
-                                    <option value="left" selected="selected">Left</option>
-                                    <option value="right">Right</option>
-                                </select>
-                            </div>
-                            <div class="theme-option">
-                                <span> Footer </span>
-                                <select class="page-footer-option form-control input-sm">
-                                    <option value="fixed">Fixed</option>
-                                    <option value="default" selected="selected">Default</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END THEME PANEL -->
-                    <!-- END PAGE HEADER-->
-                    <!-- Google Map API -->
-                    <div id="map" style=" height: 500px;"></div>
                     <div class="row">
-                        <div class="col-md-8 col-sm-6">
-                            <div class="portlet light ">
+                        <div class="col-md-12">
+                            <div class="portlet light bordered" id="form_wizard_1">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <span class="caption-subject bold uppercase font-dark">Revenue</span>
-                                        <span class="caption-helper">distance stats...</span>
+                                        <i class=" icon-layers font-red"></i>
+                                        <span class="caption-subject font-red bold uppercase"> Validate Reported Cases </span>
                                     </div>
                                     <div class="actions">
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-cloud-upload"></i>
                                         </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-wrench"></i>
                                         </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-trash"></i>
                                         </a>
-                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#"> </a>
                                     </div>
                                 </div>
-                                <div class="portlet-body">
-                                    <div id="chartdiv"></div>
+                                <div class="portlet-body form">
+                                    <form class="form-horizontal" action="#" id="submit_form" method="POST">
+                                        <div class="form-wizard">
+                                            <div class="form-body">
+                                                <ul class="nav nav-pills nav-justified steps">
+                                                    <li>
+                                                        <a href="#tab4" data-toggle="tab" class="step">
+                                                            <span class="number"> 1 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Validate Case </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div id="bar" class="progress progress-striped" role="progressbar">
+                                                    <div class="progress-bar progress-bar-success"> </div>
+                                                </div>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane" id="tab4">
+                                                        <h3 class="block">Reported Case Details</h3>
+                                                         <div class="form-group">
+                                                            <label class="control-label col-md-3">Booking ID:</label>
+                                                            <div class="col-md-4">
+                                                                <p id="bookingid" class="form-control-static" data-display="bookingid"> </p>
+                                                            </div>
+                                                        </div>
+                                                         <div class="form-group">
+                                                            <label class="control-label col-md-3">Type:</label>
+                                                            <div class="col-md-4">
+                                                                <p id="type" class="form-control-static" data-display="type"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Location:</label>
+                                                            <div class="col-md-4">
+                                                                <p id="location" class="form-control-static" data-display="location"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Date:</label>
+                                                            <div class="col-md-4">
+                                                                <p id="date" class="form-control-static" data-display="date"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Time:</label>
+                                                            <div class="col-md-4">
+                                                                <p id="time" class="form-control-static" data-display="time"> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">Remarks:</label>
+                                                            <div class="col-md-4">
+                                                                <p id="remarks" class="form-control-static" data-display="remarks"> </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <a href="cases_manage.html" class="btn blue btn-outline"> Back
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </a>
+                                                        <a class="btn btn-danger uppercase" id="reject"> Reject
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </a>
+                                                        <a class="btn btn-success uppercase" id="approve"> Approve
+                                                            <i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="portlet light ">
-                                <!-- Start of Testing -->
-                            	<h1 id="omg"></h1>
-                              <label id="L1"></label>
-                              <label id="L2"></label>
-                              <label id="L3"></label>
-                                <button id="button123" onclick="writeUserData('0001', 'Peter Pan', 'PeterPan@wtf.com', 'http://www.google.com')"></button>
-                                <button id="BB" onclick="bloodbank()">Bloodbank</button>
-                                <button id="BS" onclick="BScreen()">Breast Screening</button>
-                                <!-- End of Testing -->
-                                <!--
-                                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/Dengue" data-widget-id="780830161646161920">#Dengue Tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                                -->
                             </div>
                         </div>
                     </div>
@@ -1090,7 +1045,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END CONTAINER -->
         <!--[if lt IE 9]>
 <script src="../public/assets/global/plugins/respond.min.js"></script>
-<script src="../public/assets/global/plugins/excanvas.min.js"></script>
+<script src="../public/assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="../public/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -1101,9 +1056,24 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="../public/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
         <script src="../public/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS (WIZARD)-->
+        <script src="../public/assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="../public/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../public/assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../public/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS (DIALOG)-->
+        <script src="../public/assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="../public/assets/global/js/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS (WIZARD, add name for validation)-->
+        <script src="../public/assets/pages/js/form-wizard.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS (DIALOG)-->
+        <script src="../public/assets/pages/js/ui-bootbox.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="../public/assets/themes/js/layout.min.js" type="text/javascript"></script>
         <script src="../public/assets/themes/js/demo.min.js" type="text/javascript"></script>
@@ -1116,491 +1086,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
         <script src="../public/assets/global/js/firebase.js" type="text/javascript"></script>
         <!-- END FireBase API SCRIPTS -->
-        <!-- BEGIN GOOGLE API SCRIPTS -->
-
-
-          <script src="../public/assets/pages/js/gmaps.js" type="text/javascript"></script>
-          <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAArJGqoe1GzQMVSGBOxYgB-1QkO6wDvAI"></script>
-
-        <!-- END GOOGLE API SCRIPTS -->
-        <!-- BEGIN AMCHARTS API SCRIPTS -->
-        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-        <script src="../public/assets/pages/js/amchart.js" type="text/javascript"></script>
-        <!-- END AMCHARTS API SCRIPTS -->
-        <script type="text/javascript">
-
-       var table = firebase.database().ref('/locations/bloodbank');
-       var count = 0;
-       table.on('value', function(snapshot) {
-
-         snapshot.forEach(function() {
-           count++;
-         });
-   //count is now safe to use.
-
-          });
-
-
-          var table = firebase.database().ref('/locations/breastscreening');
-          var breastcount = 0;
-          table.on('value', function(snapshot) {
-
-            snapshot.forEach(function() {
-              breastcount++;
-            });
-      //count is now safe to use.
-
-             });
-
-
-          var table = firebase.database().ref('/locations/breastscreening');
-          var breastcount = 0;
-          table.on('value', function(snapshot) {
-
-              snapshot.forEach(function() {
-                breastcount++;
-               });
-         //count is now safe to use.
-
-                });
-
-
-                var table = firebase.database().ref('/locations/chas');
-                var chascount = 0;
-                table.on('value', function(snapshot) {
-
-                    snapshot.forEach(function() {
-                      chascount++;
-                     });
-               //count is now safe to use.
-
-                      });
-
-                      var table = firebase.database().ref('/locations/quitcentres');
-                      var quitcount = 0;
-                      table.on('value', function(snapshot) {
-
-                          snapshot.forEach(function() {
-                            quitcount++;
-                           });
-                     //count is now safe to use.
-
-                            });
-
-                            var table = firebase.database().ref('/locations/cervicalscreening');
-                            var cliniccount = 0;
-                            table.on('value', function(snapshot) {
-
-                                snapshot.forEach(function() {
-                                  cliniccount++;
-                                 });
-                           //count is now safe to use.
-                                  });
-
-                                  var table = firebase.database().ref('/DengueCases/Central');
-                                  var DCcount = 0;
-                                  table.on('value', function(snapshot) {
-
-                                      snapshot.forEach(function() {
-                                        DCcount++;
-                                       });
-                                 //count is now safe to use.
-
-                                        });
-
-                                        var table = firebase.database().ref('/DengueCases/Northeast');
-                                        var DNEcount = 0;
-                                        table.on('value', function(snapshot) {
-
-                                            snapshot.forEach(function() {
-                                              DNEcount++;
-                                             });
-                                       //count is now safe to use.
-
-                                              });
-
-                                              var table = firebase.database().ref('/DengueCases/Northwest');
-                                              var DNWcount = 0;
-                                              table.on('value', function(snapshot) {
-
-                                                  snapshot.forEach(function() {
-                                                    DNWcount++;
-                                                   });
-                                             //count is now safe to use.
-
-                                                    });
-
-
-                                                    var table = firebase.database().ref('/DengueCases/Southeast');
-                                                    var DSEcount = 0;
-                                                    table.on('value', function(snapshot) {
-
-                                                        snapshot.forEach(function() {
-                                                          DSEcount++;
-                                                         });
-                                                   //count is now safe to use.
-
-                                                          });
-
-
-                                                          var table = firebase.database().ref('/DengueCases/Southwest');
-                                                          var DSWcount = 0;
-                                                          table.on('value', function(snapshot) {
-
-                                                              snapshot.forEach(function() {
-                                                                DSWcount++;
-                                                               });
-                                                         //count is now safe to use.
-
-                                                                });
-
-
-
-
-
-
-
-function locate()
-{
-
-  map = new GMaps({
-    div: '#map',
-    lat: 1.3017,
-    lng: 103.8382,
-    zoom : 15
-  });
-  GMaps.geolocate({
-  success: function(position){
-  map.setCenter(position.coords.latitude, position.coords.longitude);
-  map.addMarker({
-    lat: position.coords.latitude,
-    lng: position.coords.longitude,
-    title: "Current Location",
-    infoWindow: {
-      content : "You are here."
-    }
-  });
-  },
-  error: function(error){
-  alert('Geolocation failed: '+error.message);
-  },
-  not_supported: function(){
-  alert("Your browser does not support geolocation");
-  },
-
-  });
-
-
-}
-
-map = new GMaps({
-  div: '#map',
-  lat: 1.3017,
-  lng: 103.8382,
-  zoom : 15
-});
-
-GMaps.geolocate({
-success: function(position){
-map.setCenter(position.coords.latitude, position.coords.longitude);
-map.addMarker({
-  lat: position.coords.latitude,
-  lng: position.coords.longitude,
-  title: "Current Location",
-  infoWindow: {
-    content : "You are here."
-  }
-});
-},
-error: function(error){
-alert('Geolocation failed: '+error.message);
-},
-not_supported: function(){
-alert("Your browser does not support geolocation");
-},
-
-});
-
-
-        //fill up this part with database data///////
-
-  ///////////////////////////
-
- function bloodbank(){
-
-
-   locate();
-
-
-   var i;
-   for(i=0; i < count ; i++)
-   {
-   var starCountRef = firebase.database().ref('/locations/bloodbank/' + i);
-   starCountRef.on('value', function(snapshot) {
-     document.getElementById("L" + i).innerHTML = snapshot.val().latitude;
-
-     map.addMarker({
-       lat: snapshot.val().latitude,
-       lng: snapshot.val().longitude,
-       title: 'Dengue1',
-       infoWindow: {
-         content: '<p>' + snapshot.val().name + '</p>'
-
-                    }
-                  });
-                });
-              }
-            }
-
-
-  function breastscreening(){
-
-            locate();
-
-
-              var i;
-              for(i=0; i < breastcount ; i++)
-              {
-              var starCountRef = firebase.database().ref('/locations/breastscreening/' + i);
-              starCountRef.on('value', function(snapshot) {
-
-                map.addMarker({
-                  lat: snapshot.val().latitude,
-                  lng: snapshot.val().longitude,
-                  title: 'Breasts Screening',
-                  infoWindow: {
-                    content: '<p>' + snapshot.val().name + '</p>'
-
-                               }
-                             });
-                           });
-                         }
-                       }
-
-
-
-function chas()
-{
-  locate();
-
-
-    var i;
-    for(i=0; i < chascount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/locations/chas/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'CHAS',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-
-}
-
-function quitCentre()
-{
-  locate();
-
-
-    var i;
-    for(i=0; i < quitcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/locations/quitcentres/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Quit Centres',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-}
-
-
-function clinic()
-{
-  locate();
-
-    var i;
-    for(i=0; i < cliniccount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/locations/cervicalscreening/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-}
-
-
-
-function dengueCentral()
-{
-  locate();
-
-    var i;
-    for(i=0; i < DCcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Central/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-
-}
-
-function dengueNortheast()
-{
-  locate();
-
-    var i;
-    for(i=0; i < DNEcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Northeast/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-
-}
-
-
-function dengueNorthwest()
-{
-  locate();
-
-    var i;
-    for(i=0; i < DNWcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Northwest/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-
-}
-
-
-function dengueSoutheast()
-{
-  locate();
-
-    var i;
-    for(i=0; i < DSEcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Southeast/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-
-}
-
-
-function dengueSouthwest()
-{
-  locate();
-
-    var i;
-    for(i=0; i < DSWcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Southwest/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        infoWindow: {
-          content: '<p>' + snapshot.val().name + '</p>'
-
-                     }
-                   });
-                 });
-               }
-
-}
-</script>
-<!-- <script type="text/javascript">
-//   // Get a database reference to our posts
-// var db = firebase.database();
-// var ref = db.ref("server/saving-data/fireblog/posts");
-//
-// // Attach an asynchronous callback to read the data at our posts reference
-// ref.on("value", function(snapshot) {
-//   console.log(snapshot.val());
-// }, function (errorObject) {
-//   console.log("The read failed: " + errorObject.code);
-// });
-
-
-
-
     </body>
-
-
-
 
 </html>
