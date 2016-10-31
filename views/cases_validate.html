@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <head>
         <meta charset="utf-8" />
-        <title>Cancel Appointment</title>
+        <title>Validate Cases</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -261,14 +261,16 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <!-- END SIDEBAR TOGGLER BUTTON -->
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item start active open">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-call-end"></i>
                                 <span class="title">Cases</span>
+                                <span class="selected"></span>
                                 <span class="arrow"></span>
+                                <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item">
+                                <li class="nav-item start">
                                     <a href="cases_manage.html" class="nav-link ">
                                         <span class="title">Manage</span>
                                     </a>
@@ -340,27 +342,25 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item start active open">
+                        <li class="nav-item">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-calendar"></i>
                                 <span class="title">Appointment</span>
-                                <span class="selected"></span>
                                 <span class="arrow"></span>
-                                <span class="arrow open"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item start">
+                                <li class="nav-item">
                                     <a href="appointment_new.html" class="nav-link ">
                                         <span class="title">New</span>
                                     </a>
                                 </li>
-                                <li class="nav-item start">
+                                <li class="nav-item">
                                     <a href="appointment_manage.html" class="nav-link ">
                                         <span class="title">Manage</span>
                                         <span class="badge badge-danger">2</span>
                                     </a>
                                 </li>
-                                <li class="nav-item start">
+                                <li class="nav-item">
                                     <a href="appointment_history.html" class="nav-link ">
                                         <span class="title">History</span>
                                     </a>
@@ -383,7 +383,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class=" icon-layers font-red"></i>
-                                        <span class="caption-subject font-red bold uppercase"> Cancel Appointment </span>
+                                        <span class="caption-subject font-red bold uppercase"> Validate Reported Cases </span>
                                     </div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -406,7 +406,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <a href="#tab4" data-toggle="tab" class="step">
                                                             <span class="number"> 1 </span>
                                                             <span class="desc">
-                                                                <i class="fa fa-check"></i> Cancel Appointment </span>
+                                                                <i class="fa fa-check"></i> Validate Case </span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -415,7 +415,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                                 <div class="tab-content">
                                                     <div class="tab-pane" id="tab4">
-                                                        <h3 class="block">Appointment Details</h3>
+                                                        <h3 class="block">Reported Case Details</h3>
                                                          <div class="form-group">
                                                             <label class="control-label col-md-3">Booking ID:</label>
                                                             <div class="col-md-4">
@@ -458,10 +458,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-actions">
                                                 <div class="row">
                                                     <div class="col-md-offset-3 col-md-9">
-                                                        <a href="appointment_manage.html" class="btn blue btn-outline"> Back
+                                                        <a href="cases_manage.html" class="btn blue btn-outline"> Back
                                                             <i class="fa fa-angle-right"></i>
                                                         </a>
-                                                        <a class="btn btn-danger uppercase" id="cancelbtn"> Cancel Appointment
+                                                        <a class="btn btn-danger uppercase" id="reject"> Reject
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </a>
+                                                        <a class="btn btn-success uppercase" id="approve"> Approve
                                                             <i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
@@ -1083,7 +1086,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
         <script src="../public/assets/global/js/firebase.js" type="text/javascript"></script>
         <!-- END FireBase API SCRIPTS -->
-         <script src="../controllers/appointment-cancel-controller.js" type="text/javascript"></script>
     </body>
 
 </html>
