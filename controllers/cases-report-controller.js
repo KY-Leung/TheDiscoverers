@@ -24,6 +24,60 @@ function writeUserData(userId, name, email, imageUrl) {
   });
 }
 
+unction writeCasesData()
+{
+ window.onload = function() {
+    var uid;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if(user){
+            uid = user.uid;
+            console.log(uid);
+        }
+    });
+/*
+  var table = firebase.database().ref('/Cases/PendingCases');
+  var count = 0;
+  table.on('value', function(snapshot) {
+
+         snapshot.forEach(function() {
+           count++;
+         });
+  });
+*/
+
+  var clusters = document.getElementById('cluster');
+  var cluster2 =  clusters.options[clusters.selectedIndex].text;
+  var coordinatesX = document.getElementById('lat').value;
+  var coordinatesY = document.getElementById('long').value;
+  var types = document.getElementById('case').value;
+  var remarks2 = document.getElementById('remarks').value;
+
+
+  //alert(count);
+
+  //firebase.database().ref('/Cases/PendingCases/' + (count+1)).set({
+   var postdata = {
+    clusters: cluster2,
+    coordinaresX: coordinatesX,
+    coordinaresY: coordinatesY,
+    type: types,
+    remarks: remarks2
+  };
+  //});
+
+
+  var newPostKey = firebase.database().ref().child('Cases').push().key;
+   var updates = {};
+  updates['/Cases/' + uid + '/' + newPostKey] = postData;
+
+ 
+
+  return firebase.database().ref().update(updates);
+
+
+}
+
+
 // To read: On (Listen for value events)
 function usernameOn(){
   var i;
