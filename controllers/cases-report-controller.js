@@ -1,15 +1,13 @@
 // Initialize Firebase
 
-
-
-var config = {
+/*var config = {
   apiKey: "AIzaSyCeXpDI14LUrp8t0CcvUINEI3lwKdUxYYI",
   authDomain: "thediscoverers-99fb8.firebaseapp.com",
   databaseURL: "https://thediscoverers-99fb8.firebaseio.com",
   storageBucket: "",
   messagingSenderId: "207543800231"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(config); */
 
 var title = document.getElementById("omg");
 var mainText = document.getElementById("text123");
@@ -24,17 +22,14 @@ function writeUserData(userId, name, email, imageUrl) {
   });
 }
 
-unction writeCasesData()
+        
+
+
+
+function writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2)
 {
- window.onload = function() {
-    var uid;
-    firebase.auth().onAuthStateChanged(function(user) {
-        if(user){
-            uid = user.uid;
-            console.log(uid);
-        }
-    });
-/*
+  console.log(uid);
+  /*
   var table = firebase.database().ref('/Cases/PendingCases');
   var count = 0;
   table.on('value', function(snapshot) {
@@ -44,24 +39,24 @@ unction writeCasesData()
          });
   });
 */
-
+/*
   var clusters = document.getElementById('cluster');
   var cluster2 =  clusters.options[clusters.selectedIndex].text;
   var coordinatesX = document.getElementById('lat').value;
   var coordinatesY = document.getElementById('long').value;
   var types = document.getElementById('case').value;
   var remarks2 = document.getElementById('remarks').value;
-
-
+*/
   //alert(count);
 
   //firebase.database().ref('/Cases/PendingCases/' + (count+1)).set({
-   var postdata = {
+   var postData = {
     clusters: cluster2,
     coordinaresX: coordinatesX,
     coordinaresY: coordinatesY,
     type: types,
-    remarks: remarks2
+    remarks: remarks2,
+    status: 'Pending'
   };
   //});
 
@@ -76,6 +71,37 @@ unction writeCasesData()
 
 
 }
+
+ window.onload = function() {
+    var uid;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if(user){
+            uid = user.uid;
+            console.log(uid);
+        }
+    });
+
+var submitbtn = document.getElementById('submitbtn');
+
+submitbtn.addEventListener('click', function() {
+  var clusters = document.getElementById('cluster');
+  var cluster2 =  clusters.options[clusters.selectedIndex].text;
+  var coordinatesX = document.getElementById('lat').value;
+  var coordinatesY = document.getElementById('long').value;
+  var types = document.getElementById('case').value;
+  var remarks2 = document.getElementById('remarks').value;
+  console.log(uid+"line92");
+  writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
+  console.log("success");
+});
+
+
+
+};
+
+
+
+
 
 
 // To read: On (Listen for value events)

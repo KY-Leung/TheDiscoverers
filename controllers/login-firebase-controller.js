@@ -42,7 +42,7 @@
 
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) { // User is signed in.
-          window.location = "index1.html" //redirect to index.html
+          window.location = "map.html" //redirect to map.html
         } 
       });
       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
