@@ -68,7 +68,7 @@ function writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remark
  
 
   return firebase.database().ref().update(updates);
-
+   window.location = "map.html";
 
 }
 
@@ -93,6 +93,8 @@ submitbtn.addEventListener('click', function() {
   console.log(uid+"line92");
   writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
   console.log("success");
+
+
 });
 
 
