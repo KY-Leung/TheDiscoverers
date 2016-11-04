@@ -1,16 +1,38 @@
 var uid;
 var entries = new Array();
+var role;
 
-$(document).ready(function() {
-    setTimeout(function () {
-        console.log("i am in set timeout");
+//observer pattern
+(function ( $ ){
+    var o = $({});
+
+    $.each({
+        trigger: 'publish',
+        on: 'subscribe',
+        off: 'unsubscribe'
+    },function(key, val){
+        jQuery[val] = function(){
+            o[key].apply(o, arguments);
+        };
+    })
+})( jQuery );
+
+  
+$.subscribe('dataready/ready',function() {
+         if ( $.fn.DataTable.isDataTable('#TABLE') ) {
+  $('#TABLE').DataTable().destroy();
+  $('#TABLE').DataTable().empty();
+}
+    if(role=="superuser"){
+
         $('#TABLE').DataTable( {
             data: entries,
             columns: [
                 { title: "#" },
+                { title: "User ID" },
                 { title: "Type" },
                 { title: "Location" },
-                { title: "Date" },
+                { title: "Appointment Date" },
                 { title: "Time" },
                 { title: "Remarks" },
                 { title: "Booking Date" },
@@ -19,12 +41,26 @@ $(document).ready(function() {
                 { title: "Actions" }
             ]
         } );
-    },2500);
-        
-        console.log(entries.length + " entries length");
-
-        
-} );
+    }else{
+  
+        $('#TABLE').DataTable( {
+            data: entries,
+            columns: [
+                { title: "#" },
+                { title: "Type" },
+                { title: "Location" },
+                { title: "Appointment Date" },
+                { title: "Time" },
+                { title: "Remarks" },
+                { title: "Booking Date" },
+                { title: "Booking ID" },
+                { title: "Status" },
+                { title: "Actions" }
+            ]
+        } );
+    }
+});
+  
 
 
         $('#TABLE').on('draw.dt', function() {
@@ -45,18 +81,38 @@ $(document).ready(function() {
 
 
        function clicked(evt) {
-            var tbody = document.getElementById('TBODY');
             var bookingid;
-            bookingid = evt.cells[7].innerHTML;
-               
+            var userid;
+            console.log(evt);
+            if(role=="superuser"){
+                 //console.log(evt.cells[1]);
+                userid = evt.cells[1].innerHTML;
+                console.log(userid + " inside superuser clicked event");
+                bookingid = evt.cells[8].innerHTML;
+                //console.log(evt.cells[8].innerHTML);
+                //bookingid == evt.cells[8].innerHTML;
+                
+                console.log(bookingid + " bookingid");
+            }else{
+                bookingid = evt.cells[7].innerHTML;
+                userid = uid;
+                console.log(userid + " inside not superuser else clicked event");
+            }
+            //console.log(bookingid);
             sessionStorage.setItem('bookingid', bookingid);
-            window.location = "appointment_cancel.html"
+            sessionStorage.setItem('userid', userid);
+           window.location = "appointment_cancel.html"
         }
 
 
 
-        function getAppointments() {
+        function getCurrentAppointments(role) {
+                if ( $.fn.DataTable.isDataTable('#TABLE') ) {
+  $('#TABLE').DataTable().destroy();
+  $('#TABLE').DataTable().empty();
+}
             console.log(uid);
+            
             var db = firebase.database();
             var appointmentsRef = db.ref("appointments");
              //To store the appointment entries
@@ -66,7 +122,7 @@ $(document).ready(function() {
             var table = document.getElementById('TABLE');
             var tableBody = document.getElementById('TBODY');
             var tableHead = document.getElementById('THEAD');
-            console.log("i am in getAppointments after table declaration")
+            console.log("i am in getCurrentAppointments after table declaration")
 
             table.border = '1'
             table.appendChild(tableBody);
@@ -86,15 +142,36 @@ $(document).ready(function() {
             } 
 
             today = dd+'/'+mm+'/'+yyyy;
-
-
-            var ref3 = appointmentsRef.orderByKey().equalTo(uid).on("value", function(snapshot) {
-                console.log(snapshot.numChildren());
-                console.log(snapshot.val());
+            if(role=="superuser"){
+                console.log("i am in superuser");
+                 var ref3 = appointmentsRef.orderByKey().on("value", function(snapshot) {
+                snapshot.forEach(function(data) {
+                     var id = data.key;
+                    data.forEach(function(childData) {
+                        if(childData.val().date >= today && childData.val().status!="Cancelled"){
+                        entries[count] = new Array(count + 1, id ,childData.val().type, childData.val().location, childData.val().date, childData.val().time, childData.val().remarks, childData.val().bookingdate, childData.getKey(), childData.val().status,"");
+                        count++;
+                    }
+                    });
+                    for (i = 0; i < entries.length; i++) {
+                        var tr = document.createElement('tr');
+                        tr.id = "row" + i;
+                        for (j = 0; j < entries[i].length; j++) {
+                            var td = document.createElement('td');
+                            td.appendChild(document.createTextNode(entries[i][j]));
+                            tr.appendChild(td);
+                        }
+                        tableBody.appendChild(tr);
+                    }
+                    myTableDiv.appendChild(table)
+                });
+                 $.publish('dataready/ready'); //publish observer
+            });
+            }else{
+                console.log("i am not in superuser");
+                 var ref3 = appointmentsRef.orderByKey().equalTo(uid).on("value", function(snapshot) {
                 snapshot.forEach(function(data) {
                     data.forEach(function(childData) {
-                        //childData.val().status!="Cancelled"
-
                         if(childData.val().date >= today && childData.val().status!="Cancelled"){
                         entries[count] = new Array(count + 1, childData.val().type, childData.val().location, childData.val().date, childData.val().time, childData.val().remarks, childData.val().bookingdate, childData.getKey(), childData.val().status,"");
                         count++;
@@ -102,51 +179,47 @@ $(document).ready(function() {
                     });
                     for (i = 0; i < entries.length; i++) {
                         var tr = document.createElement('tr');
-                        
                         tr.id = "row" + i;
-                        //tr.addEventListener("click", clicked);
-                        //mouseclic.addEventListener("click", clicked);
-
                         for (j = 0; j < entries[i].length; j++) {
                             var td = document.createElement('td');
                             td.appendChild(document.createTextNode(entries[i][j]));
                             tr.appendChild(td);
-                            //if(j==entries[i].length-1){   
-                                //console.log("I am in innerHTML");
-  
-                                 //td.innerHTML = '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions <i class="fa fa-angle-down"></i></button>'+
-                                 //                       '<ul class="dropdown-menu" role="menu"><li><a href="javascript:;"><i class="icon-docs"></i> Edit </a></li><li><a onclick="clicked(this.parentNode.parentNode.parentNode.parentNode.parentNode);"><i onclick="clicked(this);" class="icon-tag"></i> Cancel Appointment </a></li></ul></div>';
-                                
-                               // tr.appendChild(document.createTextNode("hello"));
-                            //}
                         }
                         tableBody.appendChild(tr);
                     }
                     myTableDiv.appendChild(table)
                 });
-
-
-                console.log(entries.length + "entries length");
-
+                $.publish('dataready/ready'); //publish observer
             });
+            }
         }
 
         function initApp() {
             var logoutbtn = document.getElementById('logoutbtn');
-            
+            var db = firebase.database();
+             var usersRef = db.ref("users");
             firebase.auth().onAuthStateChanged(function(user) {
   
                 if (user) {
                     uid = user.uid;
-                    console.log("I am in initApp")
-                    getAppointments();
+                    console.log(uid + "<- uid");
+                     var ref3 =usersRef.orderByKey().once("value", function(snapshot) {
+                         snapshot.forEach(function(data) {
+                            console.log(role + " inside snapshot initapp");
+                            if(uid == data.key){
+                                role = data.val().role;
+                                getCurrentAppointments(role);
+                            }
+                         });
+                     });
+                    
                     logoutbtn.addEventListener('click', function() {
                         firebase.auth().signOut();
-                        window.location = "page_user_login_1.html"
+                        window.location = "index.html"
                     });
 
                 } else {
-                    window.location = "page_user_login_1.html";
+                    window.location = "index.html";
                 }
             });
         }

@@ -206,8 +206,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <a href="page_user_lock_1.html">
                                         <i class="icon-lock"></i> Lock Screen </a>
                                 </li>
-                                <li>
-                                    <a href="index.html">
+                                <li id="logoutbtn2">
+                                    <a>
                                         <i class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
@@ -1288,10 +1288,20 @@ $(document).on('click', '.pan-to-marker', function(e) {
 
 if(count > 0)
 {
-  alert("You can only add one location.");
+  marker.setMap(null);
+ marker = map.addMarker({
+    lat: lat,
+    lng: lng,
+    title: 'Marker #' + index,
+    infoWindow: {
+      content : content
+    }
+  });
+  document.getElementById("lat").value = lat;
+  document.getElementById("long").value = lng;
 }
 else {
-  map.addMarker({
+marker =  map.addMarker({
     lat: lat,
     lng: lng,
     title: 'Marker #' + index,

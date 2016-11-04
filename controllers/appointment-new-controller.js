@@ -1,3 +1,115 @@
+(function ( $ ){
+    var o = $({});
+
+    $.each({
+        trigger: 'publish',
+        on: 'subscribe',
+        off: 'unsubscribe'
+    },function(key, val){
+        jQuery[val] = function(){
+            o[key].apply(o, arguments);
+        };
+    })
+})( jQuery );
+
+$.subscribe('dataready/ready',function(e, uid) {
+    
+     console.log(uid + " uid inside retrieveinfo");
+    var name = sessionStorage.getItem('name');
+    var type = sessionStorage.getItem('type');
+    var typeddl = document.getElementById('type');
+    var location = document.getElementById('location');
+    var submitbtn = document.getElementById('submitbtn');
+    var el = document.createElement("option");
+   var date;
+   var time;
+   var time2;
+   var remarks;
+   var currentdate;
+   var type2;
+   var location2;
+
+console.log("name is " + name + " type is " + type);
+    sessionStorage.clear();
+    var optiontype;
+    if(name!=null && type!=null){
+        if(type=="Blood Bank"){
+            optiontype=4;
+            typeddl.options[optiontype].selected = true;
+            el.textContent = name;
+            el.value = name;
+            location.appendChild(el);
+            location.options[1].selected = true;
+            
+          
+        }else if(type=="Breast Screening"){
+            optiontype=3;
+            typeddl.options[optiontype].selected = true;
+            el.textContent = name;
+            el.value = name;
+            location.appendChild(el);
+            location.options[1].selected = true;
+        }else if(type=="CHAS"){
+            optiontype=2;
+            typeddl.options[optiontype].selected = true;
+            el.textContent = name;
+            el.value = name;
+            location.appendChild(el);
+            location.options[1].selected = true;
+        }else if(type=="Quit"){
+             optiontype=5;
+            typeddl.options[optiontype].selected = true;
+            el.textContent = name;
+            el.value = name;
+            location.appendChild(el);
+            location.options[1].selected = true;
+        }else if(type=="Polyclinics"){
+            console.log("inside polyclinic")
+             optiontype=1;
+            typeddl.options[optiontype].selected = true;
+            el.textContent = name;
+            el.value = name;
+            location.appendChild(el);
+            location.options[1].selected = true;
+        }
+         submitbtn.addEventListener('click', function() {
+            date = document.getElementById('date').value;
+            time = document.getElementById('time');
+            time2 = time.options[time.selectedIndex].text;
+            remarks = document.getElementById('remarks').value;
+             currentdate = new Date(); 
+            writeNewAppointment(uid, typeddl.options[optiontype].text, location.options[1].text, date, time2, remarks, currentdate);
+         
+             console.log("success");
+             setTimeout(function () {
+            window.location = "appointment_manage.html";
+            },2000);
+        });
+       
+    }else{
+    
+      
+      
+        
+     
+         submitbtn.addEventListener('click', function() {
+            type2 = typeddl.options[typeddl.selectedIndex].text;
+            location2 = location.options[location.selectedIndex].text;
+            date = document.getElementById('date').value;
+            time = document.getElementById('time');
+            time2 = time.options[time.selectedIndex].text;
+            remarks = document.getElementById('remarks').value;
+        writeNewAppointment(uid, type2, location2, date, time2, remarks, currentdate);
+        console.log("success");
+        window.location = "appointment_manage.html";
+        
+    });
+        
+    }
+
+
+});
+
 function writeNewAppointment(uid, type, location, date, time, remarks, bookingdate) {
   // A post entry.
   var today = new Date();
@@ -31,7 +143,9 @@ function writeNewAppointment(uid, type, location, date, time, remarks, bookingda
   var updates = {};
   updates['/appointments/' + uid + '/' + newPostKey] = postData;
 
+   
   return firebase.database().ref().update(updates);
+
 
 }
 
@@ -66,30 +180,22 @@ function onSelect(){
                 });
 }
 
+
+
   window.onload = function() {
     var uid;
+
     firebase.auth().onAuthStateChanged(function(user) {
         if(user){
             uid = user.uid;
             console.log(uid);
+            $.publish('dataready/ready', uid);
         }
     });
 
+     
+   //setTimeout(function () {
+    //    retrieveInfo(uid);
+   // },2000);
 
-        submitbtn.addEventListener('click', function() {
-        var type = document.getElementById('type');
-        var type2 = type.options[type.selectedIndex].text;
-        var location = document.getElementById('location');
-        var location2 = location.options[location.selectedIndex].text;
-        var date = document.getElementById('date').value;
-        var time = document.getElementById('time');
-        var time2 = time.options[time.selectedIndex].text;
-        var remarks = document.getElementById('remarks').value;
-        var currentdate = new Date(); 
-        writeNewAppointment(uid, type2, location2, date, time2, remarks, currentdate);
-        console.log("success");
-        window.location = "appointment_manage.html";
-        });
-
-      
-    };
+};
