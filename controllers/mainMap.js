@@ -124,7 +124,20 @@
 
                                                               snapshot.forEach(function() {
                                                                 ZIKAcount++;
-                                                                document.getElementById("test").innerHTML = ZIKAcount;
+                                                               
+                                                               });
+                                                         //count is now safe to use.
+
+                                                                });
+
+
+                                                           var table = firebase.database().ref('/DengueCases/UserCases');
+                                                          var userDengueCount = 0;
+                                                          table.on('value', function(snapshot) {
+
+                                                              snapshot.forEach(function() {
+                                                                userDengueCount++;
+                                                          
                                                                });
                                                          //count is now safe to use.
 
@@ -506,9 +519,8 @@ function dengueSouthwest()
 
 function zika()
 {
-
-
-panOut();
+  
+   panOut();
 
     var i;
     for(i=0; i < ZIKAcount ; i++)
@@ -516,11 +528,37 @@ panOut();
     var starCountRef = firebase.database().ref('/ZIKACases/ZIKA/' + i);
     starCountRef.on('value', function(snapshot) {
 
-        
-        
+
       map.addMarker({
         lat: snapshot.val().latitude,
         lng: snapshot.val().longitude,
+        title: 'Clinic',
+       
+                   });
+                 });
+               }
+
+}
+
+
+
+function userDengue()
+{
+
+
+panOut();
+
+    var i;
+    for(i=1; i < userDengueCount+1 ; i++)
+    {
+    var starCountRef = firebase.database().ref('/DengueCases/UserCases/' + i);
+    starCountRef.on('value', function(snapshot) {
+
+        
+        
+      map.addMarker({
+        lat: snapshot.val().lat,
+        lng: snapshot.val().long,
         title: 'ZIKA',
        
                    });
