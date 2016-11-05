@@ -255,55 +255,107 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <!-- END SIDEBAR TOGGLER BUTTON -->
                         </li>
-                        <li class="nav-item start ">
+                        <li class="nav-item">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-home"></i>
-                                <span class="title">Diseases</span>
+                                <i class="icon-call-end"></i>
+                                <span class="title">Cases</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="map.html" class="nav-link ">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">All</span>
-                                    </a>
-                                </li>
-                         
-                                <li class="nav-item start ">
-                                    <a href="report_cases.html" class="nav-link ">
-                                        <i class="icon-graph"></i>
-                                        <span class="title">Report Cases</span>
+                                <li class="nav-item">
+                                    <a href="cases_manage.html" class="nav-link ">
+                                        <span class="title">Manage</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                       <li class="nav-item">
-                            <a href="map.html" class="nav-link nav-toggle">
+                        <li class="nav-item start active open">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-globe"></i>
+                                <span class="title">Diseases</span>
+                                <span class="selected"></span>
+                                <span class="arrow"></span>
+                                <span class="arrow open"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start">
+                                    <a href="map.html" class="nav-link ">
+                                        <span class="title">All</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start">
+                                    <a class="nav-link ">
+                                        <span class="title">Dengue</span>
+                                        <span class="badge badge-success">1</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start">
+                                    <a class="nav-link ">
+                                        <span class="title">Zika Virus</span>
+                                        <span class="badge badge-danger">5</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start active open">
+                                    <a href="cases_report.html" class="nav-link ">
+                                        <span class="title">Report Cases</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title">Clinics</span>
                                 <span class="arrow"></span>
                             </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link ">
+                                        <span class="title">CHAS Clinics</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ">
+                                        <span class="title">Pharmacists</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ">
+                                        <span class="title">Breast Screening</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ">
+                                        <span class="title">Bloodbank</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ">
+                                        <span class="title">Quit Centres</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        </li>
-                        <li class="nav-item  ">
+                        <li class="nav-item">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-puzzle"></i>
+                                <i class="icon-calendar"></i>
                                 <span class="title">Appointment</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="appointment_new.html" class="nav-link ">
                                         <span class="title">New</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="appointment_manage.html" class="nav-link ">
                                         <span class="title">Manage</span>
                                         <span class="badge badge-danger">2</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
+                                <li class="nav-item">
                                     <a href="appointment_history.html" class="nav-link ">
                                         <span class="title">History</span>
                                     </a>
@@ -385,67 +437,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="tab-pane active" id="tab1">
                                                         <h3 class="block">Please provide reporting case location</h3>
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3">Cluster
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-4">
-                                                                <select name="cluster" id="country_list" class="form-control">
-                                                                    <option value=""></option>
-                                                                    <option value="AF">Bedok</option>
-                                                                    <option value="AL">Changi</option>
-                                                                    <option value="DZ">Tampines</option>
-                                                                    <option value="DZ">Pasir Ris</option>
-                                                                    <option value="DZ">Paya Lebar</option>
-                                                                    <option value="DZ">Punggol</option>
-                                                                    <option value="DZ">Sengkang</option>
-                                                                    <option value="DZ">Hougang</option>
-                                                                    <option value="DZ">Serangoon</option>
-                                                                    <option value="DZ">Bishan</option>
-                                                                    <option value="DZ">Toa Payoh</option>
-                                                                    <option value="DZ">Geylang</option>
-                                                                    <option value="DZ">Marine Parade</option>
-                                                                    <option value="DZ">Kallang</option>
-                                                                    <option value="DZ">Novena</option>
-                                                                    <option value="DZ">Newton</option>
-                                                                    <option value="DZ">Tanglin</option>
-                                                                    <option value="DZ">Orchard</option>
-                                                                    <option value="DZ">Orchard</option>
-                                                                    <option value="DZ">Outram</option>
-                                                                    <option value="DZ">Marina East</option>
-                                                                    <option value="DZ">Marina South</option>
-                                                                    <option value="DZ">Sentosa</option>
-                                                                    <option value="DZ">Bukit Merah</option>
-                                                                    <option value="DZ">Queenstown</option>
-                                                                    <option value="DZ">Clementi</option>
-                                                                    <option value="DZ">Bukit Timah</option>
-                                                                    <option value="DZ">Ang Mo Kio</option>
-                                                                    <option value="DZ">Seletar</option>
-                                                                    <option value="DZ">Yishun</option>
-                                                                    <option value="DZ">Sembawang</option>
-                                                                    <option value="DZ">Woodlands</option>
-                                                                    <option value="DZ">Mandai</option>
-                                                                    <option value="DZ">Lim Chu Kang</option>
-                                                                    <option value="DZ">Sungei Kadut</option>
-                                                                    <option value="DZ">Choa CHu Kang</option>
-                                                                    <option value="DZ">Bukit Panjang</option>
-                                                                    <option value="DZ">Bukit Batok</option>
-                                                                    <option value="DZ">Jurong East</option>
-                                                                    <option value="DZ">Jurong West</option>
-                                                                    <option value="DZ">Pioneer</option>
-                                                                    <option value="DZ">Boon Lay</option>
-                                                                    <option value="DZ">Tuas</option>
-                                                                    <option value="DZ">Jurong Island</option>
-                                                                </select>
-                                                                <span class="help-block"> Provide reporting case cluster </span>
-                                                            </div>
+                                                            
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Coordinates
                                                                 <span class="required"> * </span>
                                                             </label>
                                                             <div class="col-md-4">
-                                                                <input type="text" class="form-control" name="lat" id="lat" readonly/>
-                                                                <input type="text" class="form-control" name="long" id="long" readonly/>
+                                                                <input type="text" class="form-control" name="lat" id="lat" />
+                                                                <input type="text" class="form-control" name="long" id="long" />
                                                                 <span class="help-block"> Please mark your location. </span>
                                                             </div>
                                                         </div>
@@ -460,31 +460,28 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 <span class="required"> * </span>
                                                             </label>
                                                             <div class="col-md-4">
-                                                                <div class="radio-list">
-                                                                    <label>
-                                                                        <input type="radio" name="case" value="D" data-title="Dengue" /> Dengue </label>
-                                                                    <label>
-                                                                        <input type="radio" name="case" value="Z" data-title="Zika" /> Zika </label>
-                                                                </div>
+                                                          
+                                                                   <select id = 'types' name='types' class="form-control">
+                                                                    <option value=""></option>
+                                                                    <option value="Dengue">Dengue</option>  
+                                                                    <option value="Zika">Zika</option>  
+                                                                    </select>
+
+                                                                
                                                                 <div id="form_case_error"> </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Remarks</label>
                                                             <div class="col-md-4">
-                                                                <textarea class="form-control" rows="3" name="remarks"></textarea>
+                                                                <textarea id = "remarks" class="form-control" rows="3" name="remarks"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="tab-pane" id="tab4">
                                                         <h3 class="block">Confirmation</h3>
                                                         <h4 class="form-section">Case Location</h4>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Cluster:</label>
-                                                            <div class="col-md-4">
-                                                                <p class="form-control-static" data-display="cluster"> </p>
-                                                            </div>
-                                                        </div>
+                                                    
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Latitude:</label>
                                                             <div class="col-md-4">
@@ -502,7 +499,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                          <div class="form-group">
                                                             <label class="control-label col-md-3">Type of case:</label>
                                                             <div class="col-md-4">
-                                                                <p class="form-control-static" data-display="case"> </p>
+                                                                <p class="form-control-static" data-display="types"> </p>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -522,7 +519,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <a href="javascript:;" class="btn btn-outline green button-next"> Continue
                                                             <i class="fa fa-angle-right"></i>
                                                         </a>
-                                                        <a href="javascript:;" class="btn green button-submit" onclick="writeUserData('0001', 'Peter Pan', 'PeterPan@wtf.com', 'http://www.google.com')"> Submit
+                                                        <a id = "submitbtn" href="javascript:;" class="btn green button-submit"> Submit
                                                             <i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
@@ -1137,27 +1134,18 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
         <script src="../public/assets/global/js/firebase.js" type="text/javascript"></script>
-        <!-- END FireBase API SCRIPTS -->
-        <script src="../controllers/subMap.js" type="text/javascript"></script>
-        <script src="../public/assets/pages/js/gmaps.js" type="text/javascript"></script> 
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAArJGqoe1GzQMVSGBOxYgB-1QkO6wDvAI"></script>
-        
-        <!-- //this is the textbox for modifiying location// -->
-    <!--     <script type="text/html" id="edit_marker_template">
-    <h4>Edit Marker</h4>
-    <form class="edit_marker" action="#" method="post" data-marker-index="{{index}}">
-      <p>
-        <label for="marker_{{index}}_lat">Latitude:</label>
-        <input type="text" id="marker_{{index}}_lat" value="{{lat}}" readonly/>
-      </p>
-      <p>
-        <label for="marker_{{index}}_lng">Longitude:</label>
-        <input type="text" id="marker_{{index}}_lng" value="{{lng}}" readonly/>
-      </p>
-    <input type="submit" value="Remove location" />
-    </form>
 
-  </script> -->
+
+
+          <script src="../public/assets/pages/js/gmaps.js" type="text/javascript"></script>
+          <script src="../controllers/cases-report-controller.js" type="text/javascript"></script>
+          <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAArJGqoe1GzQMVSGBOxYgB-1QkO6wDvAI"></script>
+        <!-- END FireBase API SCRIPTS -->
+
+                <script src="../controllers/subMap.js" type="text/javascript"></script>
+
+
+
     </body>
 
 </html>

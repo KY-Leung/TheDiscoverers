@@ -41,6 +41,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../public/assets/themes/css/layout.min.css" rel="stylesheet" type="text/css" />
         <link href="../public/assets/themes/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="../public/assets/themes/css/custom.min.css" rel="stylesheet" type="text/css" />
+        <link href="../public/assets/pages/css/toastr.css" rel="stylesheet" type="text/css" /> 
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
@@ -202,8 +203,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <a href="page_user_lock_1.html">
                                         <i class="icon-lock"></i> Lock Screen </a>
                                 </li>
-                                <li>
-                                    <a href="index.html">
+                                <li id="logoutbtn2">
+                                    <a>
                                         <i class="icon-key"></i> Log Out </a>
                                 </li>
                             </ul>
@@ -1041,8 +1042,8 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN GOOGLE API SCRIPTS -->
 
 
-          <script src="../public/assets/pages/js/gmaps.js" type="text/javascript"></script>
-          <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAArJGqoe1GzQMVSGBOxYgB-1QkO6wDvAI"></script>
+        <script src="../public/assets/pages/js/gmaps.js" type="text/javascript"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAArJGqoe1GzQMVSGBOxYgB-1QkO6wDvAI"></script>
 
         <!-- END GOOGLE API SCRIPTS -->
         <!-- BEGIN AMCHARTS API SCRIPTS -->
@@ -1056,6 +1057,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
         <script src="../controllers/mainMap.js" type="text/javascript"></script>
+
+        <!--Toastr-->
+        <script src="../public/assets/pages/js/toastr.js"></script>
+        
 
 
     </body>
