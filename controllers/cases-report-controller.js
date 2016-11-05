@@ -110,10 +110,6 @@ submitbtn.addEventListener('click', function() {
 };
 
 
-
-
-
-
 // To read: On (Listen for value events)
 function usernameOn(){
   var i;
@@ -136,8 +132,42 @@ function useremailOnce(){
 }
 
 
+function logout() {
+  var logoutbtn = document.getElementById('logoutbtn2');
+  var submitbtn = document.getElementById('submitbtn');
+  var uid;
+ firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      uid = user.uid;
+      submitbtn.addEventListener('click', function() {
+  var clusters = document.getElementById('cluster');
+  var cluster2 =  clusters.options[clusters.selectedIndex].text;
+  var coordinatesX = document.getElementById('lat').value;
+  var coordinatesY = document.getElementById('long').value;
+  var types = document.getElementById('case').value;
+  var remarks2 = document.getElementById('remarks').value;
+  console.log(uid+"line92");
+  writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
+  console.log("success");
 
+});
+      console.log("inside the logout auth")
+        logoutbtn.addEventListener('click', function() {
+            firebase.auth().signOut();
+            window.location = "index.html"
+            });
+      } else {
+        window.location = "index.html";
+        
 
+      }
+    });
+  }
+  
+ window.onload = function() {   
+ console.log("inside the onload");     
+      logout();
+}
 
 // function getArray(){
 

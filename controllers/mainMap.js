@@ -1,514 +1,528 @@
-
-       document.write('script type="text/javascript" src="../public/assets/global/js/firebase.js" ></script>');
-       document.write('script type="text/javascript" src="../public/assets/pages/js/gmaps.js" ></script>');
-
+document.write('script type="text/javascript" src="../public/assets/global/js/firebase.js" ></script>');
+document.write('script type="text/javascript" src="../public/assets/pages/js/gmaps.js" ></script>');
 
 
-       var table = firebase.database().ref('/locations/bloodbank');
-       var count = 0;
-       table.on('value', function(snapshot) {
+(function ( $ ){
+    var o = $({});
 
-         snapshot.forEach(function() {
-           count++;
-         });
-   //count is now safe to use.
-
-          });
-
-
-
-          var table = firebase.database().ref('/locations/breastscreening');
-          var breastcount = 0;
-          table.on('value', function(snapshot) {
-
-              snapshot.forEach(function() {
-                breastcount++;
-               });
-         //count is now safe to use.
-
-                });
+    $.each({
+        trigger: 'publish',
+        on: 'subscribe',
+        off: 'unsubscribe'
+    },function(key, val){
+        jQuery[val] = function(){
+            o[key].apply(o, arguments);
+        };
+    })
+})( jQuery );
 
 
-                var table = firebase.database().ref('/locations/chas');
-                var chascount = 0;
-                table.on('value', function(snapshot) {
+var name;
+var type;
+var table = firebase.database().ref('/locations/bloodbank');
+var count = 0;
+table.on('value', function(snapshot) {
 
-                    snapshot.forEach(function() {
-                      chascount++;
-                     });
-               //count is now safe to use.
+    snapshot.forEach(function() {
+        count++;
+    });
+    //count is now safe to use.
 
-                      });
-
-                      var table = firebase.database().ref('/locations/quitcentres');
-                      var quitcount = 0;
-                      table.on('value', function(snapshot) {
-
-                          snapshot.forEach(function() {
-                            quitcount++;
-                           });
-                     //count is now safe to use.
-
-                            });
-
-                            var table = firebase.database().ref('/locations/cervicalscreening');
-                            var cliniccount = 0;
-                            table.on('value', function(snapshot) {
-
-                                snapshot.forEach(function() {
-                                  cliniccount++;
-                                 });
-                           //count is now safe to use.
-                                  });
-
-                                  var table = firebase.database().ref('/DengueCases/Central');
-                                  var DCcount = 0;
-                                  table.on('value', function(snapshot) {
-
-                                      snapshot.forEach(function() {
-                                        DCcount++;
-                                       });
-                                 //count is now safe to use.
-
-                                        });
-
-                                        var table = firebase.database().ref('/DengueCases/Northeast');
-                                        var DNEcount = 0;
-                                        table.on('value', function(snapshot) {
-
-                                            snapshot.forEach(function() {
-                                              DNEcount++;
-                                             });
-                                       //count is now safe to use.
-
-                                              });
-
-                                              var table = firebase.database().ref('/DengueCases/Northwest');
-                                              var DNWcount = 0;
-                                              table.on('value', function(snapshot) {
-
-                                                  snapshot.forEach(function() {
-                                                    DNWcount++;
-                                                   });
-                                             //count is now safe to use.
-
-                                                    });
+});
 
 
-                                                    var table = firebase.database().ref('/DengueCases/Southeast');
-                                                    var DSEcount = 0;
-                                                    table.on('value', function(snapshot) {
 
-                                                        snapshot.forEach(function() {
-                                                          DSEcount++;
-                                                         });
-                                                   //count is now safe to use.
+var table = firebase.database().ref('/locations/breastscreening');
+var breastcount = 0;
+table.on('value', function(snapshot) {
 
-                                                          });
+    snapshot.forEach(function() {
+        breastcount++;
+    });
+    //count is now safe to use.
 
-
-                                                          var table = firebase.database().ref('/DengueCases/Southwest');
-                                                          var DSWcount = 0;
-                                                          table.on('value', function(snapshot) {
-
-                                                              snapshot.forEach(function() {
-                                                                DSWcount++;
-                                                               });
-                                                         //count is now safe to use.
-
-                                                                });
-
-                                                           var table = firebase.database().ref('/ZIKACases/ZIKA');
-                                                          var ZIKAcount = 0;
-                                                          table.on('value', function(snapshot) {
-
-                                                              snapshot.forEach(function() {
-                                                                ZIKAcount++;
-                                                                document.getElementById("test").innerHTML = ZIKAcount;
-                                                               });
-                                                         //count is now safe to use.
-
-                                                                });
-
-                                                          
+});
 
 
+var table = firebase.database().ref('/locations/chas');
+var chascount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        chascount++;
+    });
+    //count is now safe to use.
+
+});
+
+var table = firebase.database().ref('/locations/quitcentres');
+var quitcount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        quitcount++;
+    });
+    //count is now safe to use.
+
+});
+
+var table = firebase.database().ref('/locations/cervicalscreening');
+var cliniccount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        cliniccount++;
+    });
+    //count is now safe to use.
+});
+
+var table = firebase.database().ref('/DengueCases/Central');
+var DCcount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        DCcount++;
+    });
+    //count is now safe to use.
+
+});
+
+var table = firebase.database().ref('/DengueCases/Northeast');
+var DNEcount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        DNEcount++;
+    });
+    //count is now safe to use.
+
+});
+
+var table = firebase.database().ref('/DengueCases/Northwest');
+var DNWcount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        DNWcount++;
+    });
+    //count is now safe to use.
+
+});
+
+
+var table = firebase.database().ref('/DengueCases/Southeast');
+var DSEcount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        DSEcount++;
+    });
+    //count is now safe to use.
+
+});
+
+
+var table = firebase.database().ref('/DengueCases/Southwest');
+var DSWcount = 0;
+table.on('value', function(snapshot) {
+
+    snapshot.forEach(function() {
+        DSWcount++;
+    });
+    //count is now safe to use.
+
+});
+
+var table = firebase.database().ref('/ZIKACases/ZIKA');
+var ZIKAcount = 0;
+table.on('value', function(snapshot) {
+    snapshot.forEach(function() {
+        ZIKAcount++;
+   });
+    //count is now safe to use.
+});
+
+
+var table = firebase.database().ref('/DengueCases/UserCases');
+var userDengueCount = 0;
+table.on('value', function(snapshot) {
+    snapshot.forEach(function() {
+        userDengueCount++;
+    });
+    //count is now safe to use.
+});
 
 
 map = new GMaps({
-  div: '#map',
-  lat: 1.3017,
-  lng: 103.8382,
-  zoom : 18
+    div: '#map',
+    lat: 1.3017,
+    lng: 103.8382,
+    zoom: 18
 });
 
 
 
 GMaps.geolocate({
-success: function(position){
-map.setCenter(position.coords.latitude, position.coords.longitude);
-map.addMarker({
-  lat: position.coords.latitude,
-  lng: position.coords.longitude,
-  title: "Current Location",
-  infoWindow: {
-    content : "You are here."
-  }
-});
-},
-error: function(error){
-alert('Geolocation failed: '+error.message);
-},
-not_supported: function(){
-alert("Your browser does not support geolocation");
-},
+    success: function(position) {
+        map.setCenter(position.coords.latitude, position.coords.longitude);
+        map.addMarker({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+            title: "Current Location",
+            infoWindow: {
+                content: "You are here."
+            }
+        });
+    },
+    error: function(error) {
+        alert('Geolocation failed: ' + error.message);
+    },
+    not_supported: function() {
+        alert("Your browser does not support geolocation");
+    },
 
 });
 
-      map.addControl({
-        position: 'top_right',
-        content: 'Show current location',
-        style: {
-          margin: '5px',
-          padding: '1px 6px',
-          border: 'solid 1px #717B87',
-          background: '#fff'
-        },
-        events: {
-          click: function(){
+map.addControl({
+    position: 'top_right',
+    content: 'Show current location',
+    style: {
+        margin: '5px',
+        padding: '1px 6px',
+        border: 'solid 1px #717B87',
+        background: '#fff'
+    },
+    events: {
+        click: function() {
             GMaps.geolocate({
-              success: function(position){
-                map.setCenter(position.coords.latitude, position.coords.longitude);
-              },
-              error: function(error){
-                alert('Geolocation failed: ' + error.message);
-              },
-              not_supported: function(){
-                alert("Your browser does not support geolocation");
-              }
+                success: function(position) {
+                    map.setCenter(position.coords.latitude, position.coords.longitude);
+                },
+                error: function(error) {
+                    alert('Geolocation failed: ' + error.message);
+                },
+                not_supported: function() {
+                    alert("Your browser does not support geolocation");
+                }
             });
-          }
         }
-      });
-
-
-
-function locate()
-{
-
-
- 
-  GMaps.geolocate({
-  success: function(position){
-  map.setCenter(position.coords.latitude, position.coords.longitude);
-
-  
-  map.addMarker({
-    lat: position.coords.latitude,
-    lng: position.coords.longitude,
-    title: "Current Location",
-    infoWindow: {
-      content : "You are here."
     }
-  });
+});
 
-  },
-  error: function(error){
-  alert('Geolocation failed: '+error.message);
-  },
-  not_supported: function(){
-  alert("Your browser does not support geolocation");
-  },
 
-  });
 
-map.setZoom(18);
+function locate() {
+
+
+
+    GMaps.geolocate({
+        success: function(position) {
+            map.setCenter(position.coords.latitude, position.coords.longitude);
+
+
+            map.addMarker({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+                title: "Current Location",
+                infoWindow: {
+                    content: "You are here."
+                }
+            });
+
+        },
+        error: function(error) {
+            alert('Geolocation failed: ' + error.message);
+        },
+        not_supported: function() {
+            alert("Your browser does not support geolocation");
+        },
+
+    });
+
+    map.setZoom(18);
 
 }
 
-function panOut()
-{
+function panOut() {
 
-  map = new GMaps({
-    div: '#map',
-    lat: 1.3521,
-    lng: 103.8198,
-    zoom : 11
-  });
-  
- 
-  map.setCenter('1.3521', '103.8198');
-     map.addControl({
+    map = new GMaps({
+        div: '#map',
+        lat: 1.3521,
+        lng: 103.8198,
+        zoom: 11
+    });
+
+
+    map.setCenter('1.3521', '103.8198');
+    map.addControl({
         position: 'top_right',
         content: 'Show current location ',
         style: {
-          margin: '5px',
-          padding: '1px 6px',
-          border: 'solid 1px #717B87',
-          background: '#fff'
+            margin: '5px',
+            padding: '1px 6px',
+            border: 'solid 1px #717B87',
+            background: '#fff'
         },
         events: {
-          click: function(){
-          locate();
-          }
-        }
-      });
-
-
-}
-        //fill up this part with database data///////
-
-  ///////////////////////////
-
- function bloodbank(){
-
-
-   panOut();
-
-
-   var i;
-   for(i=0; i < count ; i++)
-   {
-   var starCountRef = firebase.database().ref('/locations/bloodbank/' + i);
-   starCountRef.on('value', function(snapshot) {
-     
-
-     map.addMarker({
-       lat: snapshot.val().latitude,
-       lng: snapshot.val().longitude,
-       title: 'Dengue1',
-       infoWindow: {
-          content: '<a href="appointment_new.html?type=BreastScreening&name='+ snapshot.val().name +  '">' + snapshot.val().name + '</a>'
-
-
-                    }
-                  });
-                });
-              }
+            click: function() {
+                locate();
             }
+        }
+    });
 
-
-  function breastscreening(){
-
-            panOut();
-
-
-              var i;
-              for(i=0; i < breastcount ; i++)
-              {
-              var starCountRef = firebase.database().ref('/locations/breastscreening/' + i);
-              starCountRef.on('value', function(snapshot) {
-
-                map.addMarker({
-                  lat: snapshot.val().latitude,
-                  lng: snapshot.val().longitude,
-                  title: 'Breasts Screening',
-                  infoWindow: {
-                    content: '<a href="appointment_new.html?type=BreastScreening&name='+ snapshot.val().name +  '">' + snapshot.val().name + '</a>'
-
-                               }
-                             });
-                           });
-                         }
-                       }
-
-
-
-function chas()
-{
-  panOut();
-
-
-    var i;
-    for(i=0; i < chascount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/locations/chas/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'CHAS',
-        infoWindow: {
-       content: '<a href="appointment_new.html?type=BreastScreening&name='+ snapshot.val().name +  '">' + snapshot.val().name + '</a>'
-
-
-                     }
-                   });
-                 });
-               }
 
 }
+//fill up this part with database data///////
 
-function quitCentre()
-{
-   panOut();
+///////////////////////////
 
-
-    var i;
-    for(i=0; i < quitcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/locations/quitcentres/' + i);
-    starCountRef.on('value', function(snapshot) {
-
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Quit Centres',
-        infoWindow: {
-          content: '<a href="appointment_new.html?type=BreastScreening&name='+ snapshot.val().name +  '">' + snapshot.val().name + '</a>'
-
-
-                     }
-                   });
-                 });
-               }
+ function clicked(names) {   
+            sessionStorage.clear();            
+            sessionStorage.setItem('name', names);
+            sessionStorage.setItem('type', type);
+            console.log("inside clicked name is " + names + " type is " + type);
+            window.location = "appointment_new.html"
 }
 
 
-function clinic()
-{
-   panOut();
+function bloodbank() {
+
+
+    panOut();
+
 
     var i;
-    for(i=0; i < cliniccount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/locations/cervicalscreening/' + i);
-    starCountRef.on('value', function(snapshot) {
+    for (i = 0; i < count; i++) {
+        var starCountRef = firebase.database().ref('/locations/bloodbank/' + i);
+        starCountRef.on('value', function(snapshot) {
+            name = snapshot.val().name;
+             type = "Blood Bank";
 
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        infoWindow: {
-          content: '<a href="appointment_new.html?type=BreastScreening&name='+ snapshot.val().name +  '">' + snapshot.val().name + '</a>'
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Dengue1',
+                infoWindow: {
+                    content: '<p>' + snapshot.val().name + '</p>'+
+                '<button onclick="clicked(\''+snapshot.val().name+'\');">Book Appointment</button>'
 
 
-                     }
-                   });
-                 });
-               }
+                }
+            });
+        });
+    }
+}
+
+
+function breastscreening() {
+
+    panOut();
+
+
+    var i;
+    for (i = 0; i < breastcount; i++) {
+        var starCountRef = firebase.database().ref('/locations/breastscreening/' + i);
+        starCountRef.on('value', function(snapshot) {
+            name = snapshot.val().name;
+            type = "Breast Screening";
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Breasts Screening',
+                infoWindow: {
+                   content: '<p>' + snapshot.val().name + '</p>'+
+                '<button onclick="clicked(\''+snapshot.val().name+'\');">Book Appointment</button>'
+
+                }
+            });
+        });
+    }
 }
 
 
 
-function dengueCentral()
-{
-   panOut();
+function chas() {
+    panOut();
+
 
     var i;
-    for(i=0; i < DCcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Central/' + i);
-    starCountRef.on('value', function(snapshot) {
+    for (i = 0; i < chascount; i++) {
+        var starCountRef = firebase.database().ref('/locations/chas/' + i);
+        starCountRef.on('value', function(snapshot) {
+            name = snapshot.val().name;
+            type = "CHAS";
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'CHAS',
+                infoWindow: {
+                   content: '<p>' + snapshot.val().name + '</p>'+
+                '<button onclick="clicked(\''+snapshot.val().name+'\');">Book Appointment</button>'
 
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-     
-                   });
-                 });
-               }
+
+                }
+            });
+        });
+    }
 
 }
 
-function dengueNortheast()
-{
-   panOut();
+function quitCentre() {
+    panOut();
+
 
     var i;
-    for(i=0; i < DNEcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Northeast/' + i);
-    starCountRef.on('value', function(snapshot) {
+    for (i = 0; i < quitcount; i++) {
+        var starCountRef = firebase.database().ref('/locations/quitcentres/' + i);
+        starCountRef.on('value', function(snapshot) {
+            name = snapshot.val().name;
+            type = "Quit";
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Quit Centres',
+                infoWindow: {
+                   content: '<p>' + snapshot.val().name + '</p>'+
+                '<button onclick="clicked(\''+snapshot.val().name+'\');">Book Appointment</button>'
 
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-        
-                   });
-                 });
-               }
+
+                }
+            });
+        });
+    }
+}
+
+
+function clinic() {
+    panOut();
+
+    var i;
+    for (i = 0; i < cliniccount; i++) {
+        var starCountRef = firebase.database().ref('/locations/cervicalscreening/' + i);
+        starCountRef.on('value', function(snapshot) {
+            name = snapshot.val().name;
+            type = "Polyclinics";
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+                infoWindow: {
+                   content: '<p>' + snapshot.val().name + '</p>'+
+                '<button onclick="clicked(\''+snapshot.val().name+'\');">Book Appointment</button>'
+
+                }
+            });
+        });
+    }
+}
+
+
+
+function dengueCentral() {
+    panOut();
+
+    var i;
+    for (i = 0; i < DCcount; i++) {
+        var starCountRef = firebase.database().ref('/DengueCases/Central/' + i);
+        starCountRef.on('value', function(snapshot) {
+
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+
+            });
+        });
+    }
+
+}
+
+function dengueNortheast() {
+    panOut();
+
+    var i;
+    for (i = 0; i < DNEcount; i++) {
+        var starCountRef = firebase.database().ref('/DengueCases/Northeast/' + i);
+        starCountRef.on('value', function(snapshot) {
+
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+
+            });
+        });
+    }
 
 }
 
 
-function dengueNorthwest()
-{
-   panOut();
+function dengueNorthwest() {
+    panOut();
 
     var i;
-    for(i=0; i < DNWcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Northwest/' + i);
-    starCountRef.on('value', function(snapshot) {
+    for (i = 0; i < DNWcount; i++) {
+        var starCountRef = firebase.database().ref('/DengueCases/Northwest/' + i);
+        starCountRef.on('value', function(snapshot) {
 
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-       
-                   });
-                 });
-               }
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+
+            });
+        });
+    }
 
 }
 
 
-function dengueSoutheast()
-{
-   panOut();
+function dengueSoutheast() {
+    panOut();
 
     var i;
-    for(i=0; i < DSEcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Southeast/' + i);
-    starCountRef.on('value', function(snapshot) {
+    for (i = 0; i < DSEcount; i++) {
+        var starCountRef = firebase.database().ref('/DengueCases/Southeast/' + i);
+        starCountRef.on('value', function(snapshot) {
 
 
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-       
-                   });
-                 });
-               }
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+
+            });
+        });
+    }
 
 }
 
 
-function dengueSouthwest()
-{
-   panOut();
+function dengueSouthwest() {
+    panOut();
 
     var i;
-    for(i=0; i < DSWcount ; i++)
-    {
-    var starCountRef = firebase.database().ref('/DengueCases/Southwest/' + i);
-    starCountRef.on('value', function(snapshot) {
+    for (i = 0; i < DSWcount; i++) {
+        var starCountRef = firebase.database().ref('/DengueCases/Southwest/' + i);
+        starCountRef.on('value', function(snapshot) {
 
 
-      map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-       
-                   });
-                 });
-               }
+            map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+
+            });
+        });
+    }
 
 }
-
 
 
 function zika()
 {
-
-
-panOut();
+  
+   panOut();
 
     var i;
     for(i=0; i < ZIKAcount ; i++)
@@ -516,12 +530,11 @@ panOut();
     var starCountRef = firebase.database().ref('/ZIKACases/ZIKA/' + i);
     starCountRef.on('value', function(snapshot) {
 
-        
-        
+
       map.addMarker({
         lat: snapshot.val().latitude,
         lng: snapshot.val().longitude,
-        title: 'ZIKA',
+        title: 'Clinic',
        
                    });
                  });
@@ -530,5 +543,82 @@ panOut();
 }
 
 
+$.subscribe('dataready/ready2',function(e, count) {
+  console.log("inside toastr" + count);
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": 0,
+  "extendedTimeOut": 0,
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut",
+  "tapToDismiss": true
+}
+toastr.success('You have ' + count + " appointments today", "Reminder");    
+});
 
-book
+function logout() {
+  var logoutbtn = document.getElementById('logoutbtn2');
+  var uid;
+ firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10) {
+                dd='0'+dd
+            } 
+
+            if(mm<10) {
+                mm='0'+mm
+            } 
+
+            today = dd+'/'+mm+'/'+yyyy;
+        var uid = user.uid;
+         var db = firebase.database();
+         var count = 0;
+   var appointmentsRef = db.ref("appointments");
+    var ref3 =appointmentsRef.orderByKey().equalTo(uid).on("value", function(snapshot) {
+         snapshot.forEach(function(data) {
+                            data.forEach(function(childData) {
+                                console.log(childData.val().date);
+                                console.log(today);
+                                 if(childData.val().date == today && childData.val().status!="Cancelled"){
+                                    count++;
+                                    console.log(count + "inside the if loop");
+                                 }
+                            });
+                        });
+         $.publish('dataready/ready2', count);
+        });
+
+
+   
+      uid = user.uid;
+      console.log("inside the logout auth")
+        logoutbtn.addEventListener('click', function() {
+            firebase.auth().signOut();
+            window.location = "index.html"
+            });
+      } else {
+        window.location = "index.html";
+        
+
+      }
+    });
+  }
+  
+ window.onload = function() {   
+ console.log("inside the onload");     
+      logout();
+}

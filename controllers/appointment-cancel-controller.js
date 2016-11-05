@@ -1,12 +1,15 @@
-function getAppointments() {
+var bookingid;
+var userid;
+
+function retrieveSelectedAppointment() {
             firebase.auth().onAuthStateChanged(function(user){
                 if(user){
-                    var uid = user.uid;
-                    console.log(uid);
+                    console.log(userid + " inside retrieveSelectedAppointment function");
                     var db = firebase.database();
                     var appointmentsRef = db.ref("appointments");
-                    var bookingid = sessionStorage.getItem('bookingid');
-                    var ref3 = appointmentsRef.child(uid).child(bookingid).on("value", function(snapshot) {
+                    bookingid = sessionStorage.getItem('bookingid');
+                    userid = sessionStorage.getItem('userid');
+                    var ref3 = appointmentsRef.child(userid).child(bookingid).on("value", function(snapshot) {
                          console.log(snapshot.val().type);
 
                          document.getElementById("bookingid").textContent = bookingid;
@@ -23,13 +26,12 @@ function getAppointments() {
         function cancelAppointment(){
             firebase.auth().onAuthStateChanged(function(user){
                 if(user){
-                    var uid = user.uid;
-                    console.log(uid);
+                    console.log(userid + " inside cancelAppointment function");
                     var db = firebase.database();
                     var appointmentsRef = db.ref("appointments");
                     var bookingid = sessionStorage.getItem('bookingid');
                     console.log("inside cancelAppointment method");
-                    appointmentsRef.child(uid).child(bookingid).update({status: "Cancelled"});
+                    appointmentsRef.child(userid).child(bookingid).update({status: "Cancelled"});
                     alert("You appointment has been cancelled.");
                     window.location = "appointment_manage.html"
                 }
@@ -43,7 +45,7 @@ function getAppointments() {
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
                     console.log("in initapp");
-                    getAppointments();
+                    retrieveSelectedAppointment();
                     var db = firebase.database();
                     var scoresRef = db.ref("appointments");
 
@@ -54,10 +56,10 @@ function getAppointments() {
 
                     logoutbtn.addEventListener('click', function() {
                         firebase.auth().signOut();
-                        window.location = "page_user_login_1.html"
+                        window.location = "index.html"
                     });
                 } else {
-                    window.location = "page_user_login_1.html";
+                    window.location = "index.html";
                 }
             });
         }

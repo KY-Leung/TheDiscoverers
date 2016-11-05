@@ -202,34 +202,26 @@ $('#TABLE').on('draw.dt', function() {
 
 
 
-
-
-
-
-
-
-
-
-      function initApp() {
-            var logoutbtn = document.getElementById('logoutbtn');
-            
-            firebase.auth().onAuthStateChanged(function(user) {
-  
-                if (user) {
-                    uid = user.uid;
-                    console.log("I am in initApp")
-                    getCases();
-                    logoutbtn.addEventListener('click', function() {
-                        firebase.auth().signOut();
-                        window.location = "page_user_login_1.html"
-                    });
-
-                } else {
-                    window.location = "page_user_login_1.html";
-                }
+     function logout() {
+  var logoutbtn = document.getElementById('logoutbtn2');
+  var uid;
+ firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      uid = user.uid;
+      console.log("inside the logout auth")
+        logoutbtn.addEventListener('click', function() {
+            firebase.auth().signOut();
+            window.location = "cases_manage.html"
             });
-        }
+      } else {
+        window.location = "index.html";
+        
 
-        window.onload = function() {
-            initApp();
-        };
+      }
+    });
+  }
+  
+ window.onload = function() {   
+ console.log("inside the onload");     
+      logout();
+}
