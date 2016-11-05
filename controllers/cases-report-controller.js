@@ -26,7 +26,7 @@ function writeUserData(userId, name, email, imageUrl) {
 
 
 
-function writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2)
+function writeCasesData(uid, coordinatesX, coordinatesY, types, remarks2)
 {
   console.log(uid);
   /*
@@ -51,7 +51,6 @@ function writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remark
 
   //firebase.database().ref('/Cases/PendingCases/' + (count+1)).set({
    var postData = {
-    clusters: cluster2,
     coordinaresX: coordinatesX,
     coordinaresY: coordinatesY,
     type: types,
@@ -68,7 +67,7 @@ function writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remark
  
 
   return firebase.database().ref().update(updates);
-   window.location = "map.html";
+   
 
 }
 
@@ -84,16 +83,25 @@ function writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remark
 var submitbtn = document.getElementById('submitbtn');
 
 submitbtn.addEventListener('click', function() {
-  var clusters = document.getElementById('cluster');
-  var cluster2 =  clusters.options[clusters.selectedIndex].text;
   var coordinatesX = document.getElementById('lat').value;
   var coordinatesY = document.getElementById('long').value;
-  var types = document.getElementById('case').value;
+  var type = document.getElementById('types');
+  var types =  type.options[type.selectedIndex].text;
+  console.log (types);
   var remarks2 = document.getElementById('remarks').value;
   console.log(uid+"line92");
-  writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
+  writeCasesData(uid, coordinatesX, coordinatesY, types, remarks2);
+  //alert("This case has been reported.");
   console.log("success");
+ 
+  // NEED TO FIND A WAY TO PUT ----- window.location = "map.html"
 
+
+
+  setTimeout(function () {
+            window.location = "map.html";
+            },2000);
+ 
 
 });
 

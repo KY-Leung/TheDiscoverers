@@ -437,59 +437,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="tab-pane active" id="tab1">
                                                         <h3 class="block">Please provide reporting case location</h3>
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3">Cluster
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-4">
-                                                                <select id = 'cluster' name="cluster" id="country_list" class="form-control">
-                                                                    <option value=""></option>
-                                                                    <option value="AF">Bedok</option>
-                                                                    <option value="AL">Changi</option>
-                                                                    <option value="DZ">Tampines</option>
-                                                                    <option value="DZ">Pasir Ris</option>
-                                                                    <option value="DZ">Paya Lebar</option>
-                                                                    <option value="DZ">Punggol</option>
-                                                                    <option value="DZ">Sengkang</option>
-                                                                    <option value="DZ">Hougang</option>
-                                                                    <option value="DZ">Serangoon</option>
-                                                                    <option value="DZ">Bishan</option>
-                                                                    <option value="DZ">Toa Payoh</option>
-                                                                    <option value="DZ">Geylang</option>
-                                                                    <option value="DZ">Marine Parade</option>
-                                                                    <option value="DZ">Kallang</option>
-                                                                    <option value="DZ">Novena</option>
-                                                                    <option value="DZ">Newton</option>
-                                                                    <option value="DZ">Tanglin</option>
-                                                                    <option value="DZ">Orchard</option>
-                                                                    <option value="DZ">Orchard</option>
-                                                                    <option value="DZ">Outram</option>
-                                                                    <option value="DZ">Marina East</option>
-                                                                    <option value="DZ">Marina South</option>
-                                                                    <option value="DZ">Sentosa</option>
-                                                                    <option value="DZ">Bukit Merah</option>
-                                                                    <option value="DZ">Queenstown</option>
-                                                                    <option value="DZ">Clementi</option>
-                                                                    <option value="DZ">Bukit Timah</option>
-                                                                    <option value="DZ">Ang Mo Kio</option>
-                                                                    <option value="DZ">Seletar</option>
-                                                                    <option value="DZ">Yishun</option>
-                                                                    <option value="DZ">Sembawang</option>
-                                                                    <option value="DZ">Woodlands</option>
-                                                                    <option value="DZ">Mandai</option>
-                                                                    <option value="DZ">Lim Chu Kang</option>
-                                                                    <option value="DZ">Sungei Kadut</option>
-                                                                    <option value="DZ">Choa CHu Kang</option>
-                                                                    <option value="DZ">Bukit Panjang</option>
-                                                                    <option value="DZ">Bukit Batok</option>
-                                                                    <option value="DZ">Jurong East</option>
-                                                                    <option value="DZ">Jurong West</option>
-                                                                    <option value="DZ">Pioneer</option>
-                                                                    <option value="DZ">Boon Lay</option>
-                                                                    <option value="DZ">Tuas</option>
-                                                                    <option value="DZ">Jurong Island</option>
-                                                                </select>
-                                                                <span class="help-block"> Provide reporting case cluster </span>
-                                                            </div>
+                                                            
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Coordinates
@@ -512,12 +460,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 <span class="required"> * </span>
                                                             </label>
                                                             <div class="col-md-4">
-                                                                <div class="radio-list">
-                                                                    <label>
-                                                                        <input type="radio" id = "case" name="case" value="Dengue" data-title="Dengue" /> Dengue </label>
-                                                                    <label>
-                                                                        <input type="radio" id = "case" name="case" value="Zika" data-title="Zika" /> Zika </label>
-                                                                </div>
+                                                          
+                                                                   <select id = 'types' name='types' class="form-control">
+                                                                    <option value=""></option>
+                                                                    <option value="Dengue">Dengue</option>  
+                                                                    <option value="Zika">Zika</option>  
+                                                                    </select>
+
+                                                                
                                                                 <div id="form_case_error"> </div>
                                                             </div>
                                                         </div>
@@ -531,12 +481,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="tab-pane" id="tab4">
                                                         <h3 class="block">Confirmation</h3>
                                                         <h4 class="form-section">Case Location</h4>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3">Cluster:</label>
-                                                            <div class="col-md-4">
-                                                                <p class="form-control-static" data-display="cluster"> </p>
-                                                            </div>
-                                                        </div>
+                                                    
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Latitude:</label>
                                                             <div class="col-md-4">
@@ -554,7 +499,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                          <div class="form-group">
                                                             <label class="control-label col-md-3">Type of case:</label>
                                                             <div class="col-md-4">
-                                                                <p class="form-control-static" data-display="case"> </p>
+                                                                <p class="form-control-static" data-display="types"> </p>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">

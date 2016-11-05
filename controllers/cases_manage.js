@@ -40,7 +40,7 @@ $('#TABLE').on('draw.dt', function() {
         });
 
     var count25 = 0;
- var table3 = firebase.database().ref('/DengueCases/UserCases');
+ var table3 = firebase.database().ref('/ZIKACases/ZIKA');
                      
                         table3.on('value', function(snapshot) {
 
@@ -74,6 +74,7 @@ $('#TABLE').on('draw.dt', function() {
             var count = 0;
             var casesid;
             casesid = evt.cells[6].innerHTML;
+            var type = evt.cells[3].innerHTML;
             var lat;
             lat = evt.cells[1].innerHTML;
             var long;
@@ -82,8 +83,11 @@ $('#TABLE').on('draw.dt', function() {
             //sessionStorage.setItem('bookingid', bookingid);
           //  window.location = "appointment_cancel.html"
                     var db2 = firebase.database();
-                    var dengues2Ref = db2.ref("DengueCases");
+                    var dengues2Ref = db2.ref("ZikaCases");
                      var cases2Ref = db2.ref("Cases");
+                 
+                     if (type == 'Zika'){
+
                      cases2Ref.child(uid).child(casesid).update({status: "Approved"});
                      alert("The case has been Approved!");
                    
@@ -91,13 +95,21 @@ $('#TABLE').on('draw.dt', function() {
                     
 
 
-                   firebase.database().ref('/DengueCases/UserCases/' + (count25+1)).set({
+                   firebase.database().ref('/ZIKACases/ZIKA/' + (count25+1)).set({
         
-                    lat: lat,
-                     long: long
-                   });
+                  lat: lat,
+                    long: long,
+                    name : 'User Reported Cases'
+                  }); 
 
-                     window.location.reload();
+                    window.location.reload();
+         }
+
+         else if (type == 'Dengue'){
+             window.location = "cases_validate.html";
+             sessionStorage.setItem('casesid', casesid);
+             sessionStorage.setItem('type', type);
+}
   //});
 
 
@@ -148,7 +160,7 @@ $('#TABLE').on('draw.dt', function() {
                         //childData.val().status!="Cancelled"
 
                         if(childData.val().status=="Pending"){
-                        entries[count] = new Array(count + 1, childData.val().coordinaresX, childData.val().coordinaresY, childData.val().remarks, childData.val().status, childData.val().type,childData.getKey(),"");
+                        entries[count] = new Array(count + 1, childData.val().coordinaresX, childData.val().coordinaresY, childData.val().type, childData.val().remarks, childData.val().status,childData.getKey(),"");
                         count++;
                     }
                     });
