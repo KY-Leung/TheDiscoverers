@@ -136,16 +136,21 @@ table.on('value', function(snapshot) {
 var table = firebase.database().ref('/ZIKACases/ZIKA');
 var ZIKAcount = 0;
 table.on('value', function(snapshot) {
-
     snapshot.forEach(function() {
         ZIKAcount++;
-        document.getElementById("test").innerHTML = ZIKAcount;
-    });
+   });
     //count is now safe to use.
-
 });
 
 
+var table = firebase.database().ref('/DengueCases/UserCases');
+var userDengueCount = 0;
+table.on('value', function(snapshot) {
+    snapshot.forEach(function() {
+        userDengueCount++;
+    });
+    //count is now safe to use.
+});
 
 
 map = new GMaps({
@@ -514,29 +519,29 @@ function dengueSouthwest() {
 }
 
 
-
-function zika() {
-
-
-    panOut();
+function zika()
+{
+  
+   panOut();
 
     var i;
-    for (i = 0; i < ZIKAcount; i++) {
-        var starCountRef = firebase.database().ref('/ZIKACases/ZIKA/' + i);
-        starCountRef.on('value', function(snapshot) {
+    for(i=0; i < ZIKAcount ; i++)
+    {
+    var starCountRef = firebase.database().ref('/ZIKACases/ZIKA/' + i);
+    starCountRef.on('value', function(snapshot) {
 
 
-
-            map.addMarker({
-                lat: snapshot.val().latitude,
-                lng: snapshot.val().longitude,
-                title: 'ZIKA',
-
-            });
-        });
-    }
+      map.addMarker({
+        lat: snapshot.val().latitude,
+        lng: snapshot.val().longitude,
+        title: 'Clinic',
+       
+                   });
+                 });
+               }
 
 }
+
 
 $.subscribe('dataready/ready2',function(e, count) {
   console.log("inside toastr" + count);

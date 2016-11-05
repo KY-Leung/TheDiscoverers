@@ -124,6 +124,7 @@ function addMarker(lat1 , lng1)
 
 }
 
+
 function logout() {
   var logoutbtn = document.getElementById('logoutbtn2');
   var uid;
@@ -147,4 +148,6 @@ function logout() {
  console.log("inside the onload");     
       logout();
 }
+
+        });
 
