@@ -1,5 +1,5 @@
-$('#lat').hide();
-$('#long').hide();
+$('#latitude').hide();
+$('#longitude').hide();
 
 
 // Initialize Firebase
@@ -87,8 +87,8 @@ function writeCasesData(uid, coordinatesX, coordinatesY, types, remarks2)
 var submitbtn = document.getElementById('submitbtn');
 
 submitbtn.addEventListener('click', function() {
-  var coordinatesX = document.getElementById('lat').value;
-  var coordinatesY = document.getElementById('long').value;
+  var coordinatesX = document.getElementById('latitude').value;
+  var coordinatesY = document.getElementById('longitude').value;
   var type = document.getElementById('types');
   var types =  type.options[type.selectedIndex].text;
   console.log (types);
@@ -136,42 +136,38 @@ function useremailOnce(){
 }
 
 
-function logout() {
-  var logoutbtn = document.getElementById('logoutbtn2');
-  var submitbtn = document.getElementById('submitbtn');
-  var uid;
- firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      uid = user.uid;
-      submitbtn.addEventListener('click', function() {
-  var clusters = document.getElementById('cluster');
-  var cluster2 =  clusters.options[clusters.selectedIndex].text;
-  var coordinatesX = document.getElementById('lat').value;
-  var coordinatesY = document.getElementById('long').value;
-  var types = document.getElementById('case').value;
-  var remarks2 = document.getElementById('remarks').value;
-  console.log(uid+"line92");
-  writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
-  console.log("success");
+// function logout() {
+//   var logoutbtn = document.getElementById('logoutbtn2');
+//   var submitbtn = document.getElementById('submitbtn');
+//   var uid;
+//  firebase.auth().onAuthStateChanged(function(user) {
+//     if (user) {
+//       uid = user.uid;
+//       submitbtn.addEventListener('click', function() {
+//   var clusters = document.getElementById('cluster');
+//   var cluster2 =  clusters.options[clusters.selectedIndex].text;
+//   var coordinatesX = document.getElementById('lat').value;
+//   var coordinatesY = document.getElementById('long').value;
+//   var types = document.getElementById('case').value;
+//   var remarks2 = document.getElementById('remarks').value;
+//   console.log(uid+"line92");
+//   writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
+//   console.log("success");
 
-});
-      console.log("inside the logout auth")
-        logoutbtn.addEventListener('click', function() {
-            firebase.auth().signOut();
-            window.location = "index.html"
-            });
-      } else {
-        window.location = "index.html";
+// });
+//       console.log("inside the logout auth")
+//         logoutbtn.addEventListener('click', function() {
+//             firebase.auth().signOut();
+//             window.location = "index.html"
+//             });
+//       } else {
+//         window.location = "index.html";
         
 
-      }
-    });
-  }
-  
- window.onload = function() {   
- console.log("inside the onload");     
-      logout();
-}
+//       }
+//     });
+//   }
+// }
 
 // function getArray(){
 

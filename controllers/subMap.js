@@ -96,8 +96,8 @@ else {
       content : "Selected location"
     }
   });
-  document.getElementById("lat").value = lat;
-  document.getElementById("long").value = lng;
+  document.getElementById("latitude").value = lat;
+  document.getElementById("longitude").value = lng;
   count++;
 }
 
@@ -118,36 +118,36 @@ function addMarker(lat1 , lng1)
     }
    
   });
-  document.getElementById("lat").value = lat1;
-  document.getElementById("long").value = lng1;
+  document.getElementById("latitude").value = lat1;
+  document.getElementById("longitude").value = lng1;
   count++;
 
 }
 
 
-function logout() {
-  var logoutbtn = document.getElementById('logoutbtn2');
-  var uid;
- firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      uid = user.uid;
-      console.log("inside the logout auth")
-        logoutbtn.addEventListener('click', function() {
-            firebase.auth().signOut();
-            window.location = "map.html"
-            });
-      } else {
-        window.location = "index.html";
+// function logout() {
+//   var logoutbtn = document.getElementById('logoutbtn2');
+//   var uid;
+//  firebase.auth().onAuthStateChanged(function(user) {
+//     if (user) {
+//       uid = user.uid;
+//       console.log("inside the logout auth")
+//         logoutbtn.addEventListener('click', function() {
+//             firebase.auth().signOut();
+//             window.location = "map.html"
+//             });
+//       } else {
+//         window.location = "index.html";
         
 
-      }
-    });
-  }
+//       }
+//     });
+//   }
   
- window.onload = function() {   
- console.log("inside the onload");     
-      logout();
-}
+//  window.onload = function() {   
+//  console.log("inside the onload");     
+//       logout();
+// }
 
         });
 

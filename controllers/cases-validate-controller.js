@@ -16,8 +16,8 @@
                          console.log(snapshot.val().type);
 
                          document.getElementById("casesid").textContent = casesid;
-                         document.getElementById("lat").textContent = snapshot.val().coordinaresX;
-                         document.getElementById("long").textContent = snapshot.val().coordinaresY;
+                         document.getElementById("latitude").textContent = snapshot.val().coordinaresX;
+                         document.getElementById("longitude").textContent = snapshot.val().coordinaresY;
                          document.getElementById("type").textContent = snapshot.val().type;
                          document.getElementById("remarks").textContent = snapshot.val().remarks;
                     });
@@ -117,8 +117,8 @@ function approveCases(){
                         if (cluster2 == 'Central'){
                    firebase.database().ref('/DengueCases/Central/' + (centralcount+1)).set({
         
-                    lat: document.getElementById("lat").textContent,
-                   long: document.getElementById("long").textContent,
+                    latitude: document.getElementById("latitude").textContent,
+                   longitude: document.getElementById("longitude").textContent,
                    name: 'User Reported Cases'
                  });    
                   
@@ -127,8 +127,8 @@ function approveCases(){
                else if (cluster2 == 'North East'){
                     firebase.database().ref('/DengueCases/Northeast/' + (northeastcount+1)).set({
         
-                    lat: document.getElementById("lat").textContent,
-                   long: document.getElementById("long").textContent,
+                    latitude: document.getElementById("latitude").textContent,
+                   longitude: document.getElementById("longitude").textContent,
                    name: 'User Reported Cases'
                  });  
                         
@@ -137,8 +137,8 @@ function approveCases(){
                else if (cluster2 == 'North West'){
                 firebase.database().ref('/DengueCases/Northwest/' + (northwestcount+1)).set({
         
-                    lat: document.getElementById("lat").textContent,
-                   long: document.getElementById("long").textContent,
+                    latitude: document.getElementById("latitude").textContent,
+                   longitude: document.getElementById("longitude").textContent,
                    name: 'User Reported Cases'
                  });  
                 
@@ -148,8 +148,8 @@ function approveCases(){
 
                    firebase.database().ref('/DengueCases/Southwest/' + (southwestcount+1)).set({
         
-                    lat: document.getElementById("lat").textContent,
-                   long: document.getElementById("long").textContent,
+                    latitude: document.getElementById("latitude").textContent,
+                   longitude: document.getElementById("longitude").textContent,
                    name: 'User Reported Cases'
                  });   
                   
@@ -158,8 +158,8 @@ function approveCases(){
 
                      firebase.database().ref('/DengueCases/Southeast/' + (southeastcount+1)).set({
         
-                    lat: document.getElementById("lat").textContent,
-                   long: document.getElementById("long").textContent,
+                    latitude: document.getElementById("latitude").textContent,
+                   longitude: document.getElementById("longitude").textContent,
                    name: 'User Reported Cases'
                  }); 
 
@@ -171,8 +171,8 @@ function approveCases(){
                
                 firebase.database().ref('/ZIKACases/ZIKA' + (zikacount+1)).set({
         
-                    lat: document.getElementById("lat").textContent,
-                   long: document.getElementById("long").textContent,
+                    latitude: document.getElementById("latitude").textContent,
+                   longitude: document.getElementById("longitude").textContent,
                    name: 'User Reported Cases'
                  }); 
 
