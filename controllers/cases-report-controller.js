@@ -163,10 +163,6 @@ function logout() {
       }
     });
   }
-  
- window.onload = function() {   
- console.log("inside the onload");     
-      logout();
 }
 
 // function getArray(){
