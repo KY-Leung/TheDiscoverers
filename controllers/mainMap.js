@@ -437,7 +437,7 @@ $('#southwest').hide();
 $('#northeast').hide();
 $('#northwest').hide();
     var i;
-    for (i = 0; i < DCcount; i++) {
+    for (i = 0; i < DCcount + 1; i++) {
         var starCountRef = firebase.database().ref('/DengueCases/Central/' + i);
         starCountRef.on('value', function(snapshot) {
 
@@ -484,7 +484,7 @@ $('#northwest').hide();
     panOut();
 
     var i;
-    for (i = 0; i < DNEcount; i++) {
+    for (i = 0; i < DNEcount + 1; i++) {
         var starCountRef = firebase.database().ref('/DengueCases/Northeast/' + i);
         starCountRef.on('value', function(snapshot) {
 
@@ -530,7 +530,7 @@ $('#northwest').show();
     panOut();
 
     var i;
-    for (i = 0; i < DNWcount; i++) {
+    for (i = 0; i < DNWcount + 1; i++) {
         var starCountRef = firebase.database().ref('/DengueCases/Northwest/' + i);
         starCountRef.on('value', function(snapshot) {
 
@@ -574,7 +574,7 @@ $('#northwest').hide();
     panOut();
 
     var i;
-    for (i = 0; i < DSEcount; i++) {
+    for (i = 0; i < DSEcount + 1; i++) {
         var starCountRef = firebase.database().ref('/DengueCases/Southeast/' + i);
         starCountRef.on('value', function(snapshot) {
 
@@ -619,7 +619,7 @@ $('#northwest').hide();
     panOut();
 
     var i;
-    for (i = 0; i < DSWcount; i++) {
+    for (i = 0; i < DSWcount + 1; i++) {
         var starCountRef = firebase.database().ref('/DengueCases/Southwest/' + i);
         starCountRef.on('value', function(snapshot) {
 
