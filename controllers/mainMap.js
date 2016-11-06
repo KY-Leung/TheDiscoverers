@@ -441,12 +441,33 @@ $('#northwest').hide();
         var starCountRef = firebase.database().ref('/DengueCases/Central/' + i);
         starCountRef.on('value', function(snapshot) {
 
-            map.addMarker({
+
+if(snapshot.val().name = null)
+{
+     map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
                 title: 'Clinic',
 
             });
+}
+
+else
+{
+
+      map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+                infoWindow: {
+                   content: snapshot.val().name 
+                
+
+                }
+
+            });
+}
+           
         });
     }
 
@@ -467,12 +488,31 @@ $('#northwest').hide();
         var starCountRef = firebase.database().ref('/DengueCases/Northeast/' + i);
         starCountRef.on('value', function(snapshot) {
 
-            map.addMarker({
+          if(snapshot.val().name == "")
+{
+     map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
                 title: 'Clinic',
 
             });
+}
+
+else
+{
+
+      map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+                infoWindow: {
+                   content: snapshot.val().name 
+                
+
+                }
+
+            });
+}
         });
     }
 
@@ -494,12 +534,31 @@ $('#northwest').show();
         var starCountRef = firebase.database().ref('/DengueCases/Northwest/' + i);
         starCountRef.on('value', function(snapshot) {
 
-            map.addMarker({
+         if(snapshot.val().name = null)
+{
+     map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
                 title: 'Clinic',
 
             });
+}
+
+else
+{
+
+      map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+                infoWindow: {
+                   content: snapshot.val().name 
+                
+
+                }
+
+            });
+}
         });
     }
 
@@ -520,12 +579,31 @@ $('#northwest').hide();
         starCountRef.on('value', function(snapshot) {
 
 
-            map.addMarker({
+          if(snapshot.val().name = null)
+{
+     map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
                 title: 'Clinic',
 
             });
+}
+
+else
+{
+
+      map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+                infoWindow: {
+                   content: snapshot.val().name 
+                
+
+                }
+
+            });
+}
         });
     }
 
@@ -546,12 +624,31 @@ $('#northwest').hide();
         starCountRef.on('value', function(snapshot) {
 
 
-            map.addMarker({
+        if(snapshot.val().name = null)
+{
+     map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
                 title: 'Clinic',
 
             });
+}
+
+else
+{
+
+      map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+                infoWindow: {
+                   content: snapshot.val().name 
+                
+
+                }
+
+            });
+}
         });
     }
 
@@ -571,12 +668,31 @@ function zika()
     starCountRef.on('value', function(snapshot) {
 
 
+     if(snapshot.val().name = null)
+{
+     map.addMarker({
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+
+            });
+}
+
+else
+{
+
       map.addMarker({
-        lat: snapshot.val().latitude,
-        lng: snapshot.val().longitude,
-        title: 'Clinic',
-       
-                   });
+                lat: snapshot.val().latitude,
+                lng: snapshot.val().longitude,
+                title: 'Clinic',
+                infoWindow: {
+                   content: snapshot.val().name 
+                
+
+                }
+
+            });
+}
                  });
                }
 
