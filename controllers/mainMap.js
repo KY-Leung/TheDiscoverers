@@ -2,6 +2,13 @@ document.write('script type="text/javascript" src="../public/assets/global/js/fi
 document.write('script type="text/javascript" src="../public/assets/pages/js/gmaps.js" ></script>');
 
 
+$('#central').hide();
+$('#southeast').hide();
+$('#southwest').hide();
+$('#northeast').hide();
+$('#northwest').hide();
+
+
 (function ( $ ){
     var o = $({});
 
@@ -286,7 +293,7 @@ function panOut() {
 
 
 function bloodbank() {
-
+    hideall();
 
     panOut();
 
@@ -315,7 +322,7 @@ function bloodbank() {
 
 
 function breastscreening() {
-
+hideall();
     panOut();
 
 
@@ -342,6 +349,7 @@ function breastscreening() {
 
 
 function chas() {
+    hideall();
     panOut();
 
 
@@ -368,6 +376,7 @@ function chas() {
 }
 
 function quitCentre() {
+    hideall();
     panOut();
 
 
@@ -394,6 +403,7 @@ function quitCentre() {
 
 
 function clinic() {
+    hideall();
     panOut();
 
     var i;
@@ -421,6 +431,11 @@ function clinic() {
 function dengueCentral() {
     panOut();
 
+$('#central').show();
+$('#southeast').hide();
+$('#southwest').hide();
+$('#northeast').hide();
+$('#northwest').hide();
     var i;
     for (i = 0; i < DCcount; i++) {
         var starCountRef = firebase.database().ref('/DengueCases/Central/' + i);
@@ -435,9 +450,16 @@ function dengueCentral() {
         });
     }
 
+
+
 }
 
 function dengueNortheast() {
+    $('#central').hide();
+$('#southeast').hide();
+$('#southwest').hide();
+$('#northeast').show();
+$('#northwest').hide();
     panOut();
 
     var i;
@@ -454,10 +476,17 @@ function dengueNortheast() {
         });
     }
 
+
+
 }
 
 
 function dengueNorthwest() {
+    $('#central').hide();
+$('#southeast').hide();
+$('#southwest').hide();
+$('#northeast').hide();
+$('#northwest').show();
     panOut();
 
     var i;
@@ -478,6 +507,11 @@ function dengueNorthwest() {
 
 
 function dengueSoutheast() {
+    $('#central').hide();
+$('#southeast').show();
+$('#southwest').hide();
+$('#northeast').hide();
+$('#northwest').hide();
     panOut();
 
     var i;
@@ -499,6 +533,11 @@ function dengueSoutheast() {
 
 
 function dengueSouthwest() {
+    $('#central').hide();
+$('#southeast').hide();
+$('#southwest').show();
+$('#northeast').hide();
+$('#northwest').hide();
     panOut();
 
     var i;
@@ -521,6 +560,7 @@ function dengueSouthwest() {
 
 function zika()
 {
+    hideall();
   
    panOut();
 
@@ -621,4 +661,19 @@ function logout() {
  window.onload = function() {   
  console.log("inside the onload");     
       logout();
+}
+
+
+
+
+
+
+function hideall()
+{
+
+$('#central').hide();
+$('#southeast').hide();
+$('#southwest').hide();
+$('#northeast').hide();
+$('#northwest').hide();
 }

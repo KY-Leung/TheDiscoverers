@@ -1,3 +1,7 @@
+$('#lat').hide();
+$('#long').hide();
+
+
 // Initialize Firebase
 
 /*var config = {

@@ -199,7 +199,8 @@ $('#TABLE').on('draw.dt', function() {
 
     };
 
-      function initApp() {
+
+    function initApp() {
             var logoutbtn = document.getElementById('logoutbtn2');
             
             firebase.auth().onAuthStateChanged(function(user) {
