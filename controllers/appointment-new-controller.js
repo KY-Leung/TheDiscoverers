@@ -184,14 +184,28 @@ function onSelect(){
 
    window.onload = function() {
     var uid;
+    var role;
+    var db = firebase.database();
+    var usersRef = db.ref("users");
     var logoutbtn = document.getElementById('logoutbtn');
  
     firebase.auth().onAuthStateChanged(function(user) {
         if(user){
             uid = user.uid;
             console.log(uid);
+            var ref3 =usersRef.orderByKey().once("value", function(snapshot) {
+                 snapshot.forEach(function(data) {
+                    console.log(role + " inside snapshot initapp");
+                    if(uid == data.key){
+                        role = data.val().role;
+                        if(role!="superuser")
+                            $(".manager-only").hide();
+                        else
+                            $(".user-only").hide();
+                    }
+                 });
+             });
             $.publish('dataready/ready', uid);
- 
             logoutbtn.addEventListener('click', function() {
                         firebase.auth().signOut();
                         window.location = "index.html"

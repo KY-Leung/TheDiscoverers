@@ -751,9 +751,26 @@ toastr.success('You have ' + count + " appointments today", "Reminder");
 function logout() {
   var logoutbtn = document.getElementById('logoutbtn2');
   var uid;
+  var role;
+  var db = firebase.database();
+  var usersRef = db.ref("users");
+
  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      var today = new Date();
+        var uid = user.uid;
+        var ref3 =usersRef.orderByKey().once("value", function(snapshot) {
+             snapshot.forEach(function(data) {
+                console.log(role + " inside snapshot initapp");
+                if(uid == data.key){
+                    role = data.val().role;
+                    if(role!="superuser")
+                        $(".manager-only").hide();
+                    else
+                        $(".user-only").hide();
+                }
+             });
+         });
+        var today = new Date();
             var dd = today.getDate();
             var mm = today.getMonth()+1; //January is 0!
             var yyyy = today.getFullYear();
@@ -766,8 +783,6 @@ function logout() {
             } 
 
             today = dd+'/'+mm+'/'+yyyy;
-        var uid = user.uid;
-         var db = firebase.database();
          var count = 0;
    var appointmentsRef = db.ref("appointments");
     var ref3 =appointmentsRef.orderByKey().equalTo(uid).on("value", function(snapshot) {

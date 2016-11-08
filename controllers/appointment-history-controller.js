@@ -179,8 +179,11 @@ if ( $.fn.DataTable.isDataTable('#TABLE') ) {
                             if(uid == data.key){
                                 role = data.val().role;
                                 console.log(role + " inside initapp")
+                                if(role!="superuser")
+                                    $(".manager-only").hide();
+                                else
+                                    $(".user-only").hide();
                                 getAppointments(role);
-                                
                             }
                          });
                      });
