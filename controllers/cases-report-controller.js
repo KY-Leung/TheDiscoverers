@@ -136,38 +136,38 @@ function useremailOnce(){
 }
 
 
-// function logout() {
-//   var logoutbtn = document.getElementById('logoutbtn2');
-//   var submitbtn = document.getElementById('submitbtn');
-//   var uid;
-//  firebase.auth().onAuthStateChanged(function(user) {
-//     if (user) {
-//       uid = user.uid;
-//       submitbtn.addEventListener('click', function() {
-//   var clusters = document.getElementById('cluster');
-//   var cluster2 =  clusters.options[clusters.selectedIndex].text;
-//   var coordinatesX = document.getElementById('lat').value;
-//   var coordinatesY = document.getElementById('long').value;
-//   var types = document.getElementById('case').value;
-//   var remarks2 = document.getElementById('remarks').value;
-//   console.log(uid+"line92");
-//   writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
-//   console.log("success");
+function logout() {
+  var logoutbtn = document.getElementById('logoutbtn2');
+  var submitbtn = document.getElementById('submitbtn');
+  var uid;
+ firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      uid = user.uid;
+      submitbtn.addEventListener('click', function() {
+  var clusters = document.getElementById('cluster');
+  var cluster2 =  clusters.options[clusters.selectedIndex].text;
+  var coordinatesX = document.getElementById('lat').value;
+  var coordinatesY = document.getElementById('long').value;
+  var types = document.getElementById('case').value;
+  var remarks2 = document.getElementById('remarks').value;
+  console.log(uid+"line92");
+  writeCasesData(uid, cluster2, coordinatesX, coordinatesY, types, remarks2);
+  console.log("success");
 
-// });
-//       console.log("inside the logout auth")
-//         logoutbtn.addEventListener('click', function() {
-//             firebase.auth().signOut();
-//             window.location = "index.html"
-//             });
-//       } else {
-//         window.location = "index.html";
+});
+      console.log("inside the logout auth")
+        logoutbtn.addEventListener('click', function() {
+            firebase.auth().signOut();
+            window.location = "index.html"
+            });
+      } else {
+        window.location = "index.html";
         
 
-//       }
-//     });
-//   }
-// }
+      }
+    });
+  }
+
 
 // function getArray(){
 
