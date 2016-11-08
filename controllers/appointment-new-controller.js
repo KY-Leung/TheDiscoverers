@@ -182,15 +182,23 @@ function onSelect(){
 
 
 
-  window.onload = function() {
+   window.onload = function() {
     var uid;
-
+    var logoutbtn = document.getElementById('logoutbtn');
+ 
     firebase.auth().onAuthStateChanged(function(user) {
         if(user){
             uid = user.uid;
             console.log(uid);
             $.publish('dataready/ready', uid);
-        }
+ 
+            logoutbtn.addEventListener('click', function() {
+                        firebase.auth().signOut();
+                        window.location = "index.html"
+                    });
+        }else {
+                    window.location = "index.html";
+                }
     });
 
      
