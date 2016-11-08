@@ -208,7 +208,7 @@ function approveCases(){
             var role;
             var db = firebase.database();
             var usersRef = db.ref("users");
-            var logoutbtn = document.getElementById('logoutbtn');
+            var logoutbtn = document.getElementById('logoutbtn2');
             var approvebtn = document.getElementById('approvebtn');
 
             firebase.auth().onAuthStateChanged(function(user) {
@@ -238,10 +238,10 @@ function approveCases(){
 
                     logoutbtn.addEventListener('click', function() {
                         firebase.auth().signOut();
-                        window.location = "page_user_login_1.html"
+                        window.location = "cases_manage.html"
                     });
                 } else {
-                    window.location = "page_user_login_1.html";
+                    window.location = "index.html";
                 }
             });
         }
