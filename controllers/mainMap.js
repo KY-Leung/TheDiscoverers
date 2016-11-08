@@ -23,7 +23,13 @@ $('#northwest').hide();
     })
 })( jQuery );
 
-
+var userLocationIcon = '../public/assets/themes/img/bluecircle.png';
+var dengueIcon = '../public/assets/themes/img/dengue.png';
+var chasIcon = '../public/assets/themes/img/chas.png';
+var quitIcon = '../public/assets/themes/img/quit.png';
+var breastIcon = '../public/assets/themes/img/breast.png';
+var bloodIcon = '../public/assets/themes/img/blood.png';
+var userReported = '../public/assets/themes/img/userReported.png';
 var name;
 var type;
 var table = firebase.database().ref('/locations/bloodbank');
@@ -164,7 +170,7 @@ map = new GMaps({
     div: '#map',
     lat: 1.3017,
     lng: 103.8382,
-    zoom: 18
+    zoom: 16
 });
 
 
@@ -175,6 +181,7 @@ GMaps.geolocate({
         map.addMarker({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
+            icon: userLocationIcon,
             title: "Current Location",
             infoWindow: {
                 content: "You are here."
@@ -230,6 +237,7 @@ function locate() {
             map.addMarker({
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
+                icon: userLocationIcon,
                 title: "Current Location",
                 infoWindow: {
                     content: "You are here."
@@ -246,7 +254,7 @@ function locate() {
 
     });
 
-    map.setZoom(18);
+    map.setZoom(16);
 
 }
 
@@ -256,7 +264,7 @@ function panOut() {
         div: '#map',
         lat: 1.3521,
         lng: 103.8198,
-        zoom: 11
+        zoom: 12
     });
 
 
@@ -308,6 +316,7 @@ function bloodbank() {
             map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: bloodIcon,
                 title: 'Dengue1',
                 infoWindow: {
                     content: '<p>' + snapshot.val().name + '</p>'+
@@ -335,6 +344,7 @@ hideall();
             map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: breastIcon,
                 title: 'Breasts Screening',
                 infoWindow: {
                    content: '<p>' + snapshot.val().name + '</p>'+
@@ -362,6 +372,7 @@ function chas() {
             map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: chasIcon,
                 title: 'CHAS',
                 infoWindow: {
                    content: '<p>' + snapshot.val().name + '</p>'+
@@ -389,6 +400,7 @@ function quitCentre() {
             map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: quitIcon,
                 title: 'Quit Centres',
                 infoWindow: {
                    content: '<p>' + snapshot.val().name + '</p>'+
@@ -442,13 +454,16 @@ $('#northwest').hide();
         starCountRef.on('value', function(snapshot) {
 
 
-if(snapshot.val().name = null)
+if(snapshot.val().name == "")
 {
      map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: dengueIcon,
                 title: 'Clinic',
-
+                infoWindow: {
+                   content: "Retrived from data.gov.sg" 
+                }
             });
 }
 
@@ -458,11 +473,10 @@ else
       map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: userReported,
                 title: 'Clinic',
                 infoWindow: {
                    content: snapshot.val().name 
-                
-
                 }
 
             });
@@ -493,8 +507,11 @@ $('#northwest').hide();
      map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: dengueIcon,
                 title: 'Clinic',
-
+                infoWindow: {
+                   content: "Retrived from data.gov.sg" 
+                }
             });
 }
 
@@ -504,13 +521,11 @@ else
       map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: userReported,
                 title: 'Clinic',
                 infoWindow: {
                    content: snapshot.val().name 
-                
-
                 }
-
             });
 }
         });
@@ -534,13 +549,16 @@ $('#northwest').show();
         var starCountRef = firebase.database().ref('/DengueCases/Northwest/' + i);
         starCountRef.on('value', function(snapshot) {
 
-         if(snapshot.val().name = null)
+         if(snapshot.val().name == "")
 {
      map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: dengueIcon,
                 title: 'Clinic',
-
+                infoWindow: {
+                   content: "Retrived from data.gov.sg" 
+                }
             });
 }
 
@@ -550,11 +568,10 @@ else
       map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: userReported,
                 title: 'Clinic',
                 infoWindow: {
                    content: snapshot.val().name 
-                
-
                 }
 
             });
@@ -579,13 +596,16 @@ $('#northwest').hide();
         starCountRef.on('value', function(snapshot) {
 
 
-          if(snapshot.val().name = null)
+          if(snapshot.val().name == "")
 {
      map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: dengueIcon,
                 title: 'Clinic',
-
+                infoWindow: {
+                   content: "Retrived from data.gov.sg" 
+                }
             });
 }
 
@@ -595,11 +615,10 @@ else
       map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: userReported,
                 title: 'Clinic',
                 infoWindow: {
                    content: snapshot.val().name 
-                
-
                 }
 
             });
@@ -624,13 +643,16 @@ $('#northwest').hide();
         starCountRef.on('value', function(snapshot) {
 
 
-        if(snapshot.val().name = null)
+        if(snapshot.val().name == "")
 {
      map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: dengueIcon,
                 title: 'Clinic',
-
+                infoWindow: {
+                   content: "Retrived from data.gov.sg" 
+                }
             });
 }
 
@@ -640,11 +662,10 @@ else
       map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: userReported,
                 title: 'Clinic',
                 infoWindow: {
                    content: snapshot.val().name 
-                
-
                 }
 
             });
@@ -662,19 +683,21 @@ function zika()
    panOut();
 
     var i;
-    for(i=0; i < ZIKAcount ; i++)
+    for(i=0; i < ZIKAcount + 1; i++)
     {
     var starCountRef = firebase.database().ref('/ZIKACases/ZIKA/' + i);
     starCountRef.on('value', function(snapshot) {
 
 
-     if(snapshot.val().name = null)
+     if(snapshot.val().name == "")
 {
      map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
                 title: 'Clinic',
-
+                infoWindow: {
+                   content: "Retrived from data.gov.sg" 
+                }
             });
 }
 
@@ -687,8 +710,6 @@ else
                 title: 'Clinic',
                 infoWindow: {
                    content: snapshot.val().name 
-                
-
                 }
 
             });

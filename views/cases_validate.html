@@ -210,36 +210,19 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle" src="../public/assets/themes/img/avatar3_small.jpg" />
-                                <span class="username username-hide-on-mobile"> Nick </span>
+                                <span class="username username-hide-on-mobile"> JOEL TOH </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="page_user_profile_1.html">
+                                    <a href="">
                                         <i class="icon-user"></i> My Profile </a>
                                 </li>
                                 <li>
-                                    <a href="app_calendar.html">
+                                    <a href="">
                                         <i class="icon-calendar"></i> My Calendar </a>
                                 </li>
-                                <li>
-                                    <a href="app_inbox.html">
-                                        <i class="icon-envelope-open"></i> My Inbox
-                                        <span class="badge badge-danger"> 3 </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="app_todo.html">
-                                        <i class="icon-rocket"></i> My Tasks
-                                        <span class="badge badge-success"> 7 </span>
-                                    </a>
-                                </li>
                                 <li class="divider"> </li>
-                                <li>
-                                    <a href="page_user_lock_1.html">
-                                        <i class="icon-lock"></i> Lock Screen </a>
-                                </li>
                                 <li id="logoutbtn2">
                                     <a>
                                         <i class="icon-key"></i> Log Out </a>
@@ -394,7 +377,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-body">
                                                 <ul class="nav nav-pills nav-justified steps">
                                                     <li>
-                                                        <a href="#tab4" data-toggle="tab" class="step">
+                                                        <a href="#tab1" data-toggle="tab" class="step">
                                                             <span class="number"> 1 </span>
                                                             <span class="desc">
                                                                 <i class="fa fa-check"></i> Validate Case </span>
@@ -405,9 +388,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="progress-bar progress-bar-success"> </div>
                                                 </div>
                                                 <div class="tab-content">
-                                                    <div class="tab-pane" id="tab4">
+                                                    <div class="alert alert-danger display-none">
+                                                        <button class="close" data-dismiss="alert"></button> You have some form errors. Please check below. </div>
+                                                    <div class="alert alert-success display-none">
+                                                        <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
+                                                    <div class="tab-pane active" id="tab1">
                                                         <h3 class="block">Reported Case Details</h3>
-                                                         <div class="form-group">
+                                                        <div class="form-group">
                                                             <label class="control-label col-md-3">Cases ID:</label>
                                                             <div class="col-md-4">
                                                                 <p id="casesid" class="form-control-static" data-display="casesid"> </p>
@@ -438,10 +425,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3">Choose Cluster:</label>
+                                                            <label class="control-label col-md-3">Choose Cluster:
+                                                                <span class="required"> * </span>
+                                                            </label>
                                                              <div class="col-md-4">
-                                                                <select id = 'cluster' name="cluster" class="form-control">
-                                                                    <option value=""></option>
+                                                                <select id="cluster" name="cluster" class="form-control">
+                                                                    <option value="">-- Please select cluster --</option>
                                                                     <option value="Northeast">North East</option>
                                                                     <option value="Northwest">North West</option>
                                                                     <option value="Southeast">South East</option>
