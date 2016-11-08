@@ -25,10 +25,12 @@ $('#northwest').hide();
 
 var userLocationIcon = '../public/assets/themes/img/bluecircle.png';
 var dengueIcon = '../public/assets/themes/img/dengue.png';
+var zikaIcon = '../public/assets/themes/img/zika.png';
 var chasIcon = '../public/assets/themes/img/chas.png';
-var quitIcon = '../public/assets/themes/img/quit.png';
+var polyclinicIcon = '../public/assets/themes/img/polyclinic.png';
 var breastIcon = '../public/assets/themes/img/breast.png';
 var bloodIcon = '../public/assets/themes/img/blood.png';
+var quitIcon = '../public/assets/themes/img/quit.png';
 var userReported = '../public/assets/themes/img/userReported.png';
 var name;
 var type;
@@ -427,6 +429,7 @@ function clinic() {
             map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: polyclinicIcon,
                 title: 'Clinic',
                 infoWindow: {
                    content: '<p>' + snapshot.val().name + '</p>'+
@@ -694,6 +697,7 @@ function zika()
      map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: zikaIcon,
                 title: 'Clinic',
                 infoWindow: {
                    content: "Retrived from data.gov.sg" 
@@ -707,6 +711,7 @@ else
       map.addMarker({
                 lat: snapshot.val().latitude,
                 lng: snapshot.val().longitude,
+                icon: userReported,
                 title: 'Clinic',
                 infoWindow: {
                    content: snapshot.val().name 

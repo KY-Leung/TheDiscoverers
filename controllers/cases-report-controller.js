@@ -1,5 +1,5 @@
-$('#latitude').hide();
-$('#longitude').hide();
+// $('#latitude').hide();
+// $('#longitude').hide();
 
 
 // Initialize Firebase
@@ -146,8 +146,8 @@ function logout() {
       submitbtn.addEventListener('click', function() {
   var clusters = document.getElementById('cluster');
   var cluster2 =  clusters.options[clusters.selectedIndex].text;
-  var coordinatesX = document.getElementById('lat').value;
-  var coordinatesY = document.getElementById('long').value;
+  var coordinatesX = document.getElementById('latitude').value;
+  var coordinatesY = document.getElementById('longitude').value;
   var types = document.getElementById('case').value;
   var remarks2 = document.getElementById('remarks').value;
   console.log(uid+"line92");

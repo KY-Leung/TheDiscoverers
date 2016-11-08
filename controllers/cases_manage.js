@@ -9,7 +9,7 @@ $(document).ready(function() {
             columns: [
                 { title: "#" },
                 { title: "Latitude" },
-                { title: "Longitute" },
+                { title: "Longitude" },
                 { title: "Types" },
                 { title: "Remarks" },
                 { title: "Status" },
@@ -75,10 +75,10 @@ $('#TABLE').on('draw.dt', function() {
             var casesid;
             casesid = evt.cells[6].innerHTML;
             var type = evt.cells[3].innerHTML;
-            var lat;
-            lat = evt.cells[1].innerHTML;
-            var long;
-            long = evt.cells[2].innerHTML;
+            var latitude;
+            latitude = evt.cells[1].innerHTML;
+            var longitude;
+            longitude = evt.cells[2].innerHTML;
                console.log(casesid);
             //sessionStorage.setItem('bookingid', bookingid);
           //  window.location = "appointment_cancel.html"
@@ -97,8 +97,8 @@ $('#TABLE').on('draw.dt', function() {
 
                    firebase.database().ref('/ZIKACases/ZIKA/' + (count25+1)).set({
         
-                  lat: lat,
-                    long: long,
+                  latitude: latitude,
+                    longitude: longitude,
                     name : 'User Reported Cases'
                   }); 
 
