@@ -208,6 +208,10 @@ $.subscribe('dataready/ready',function() {
                             console.log(role + " inside snapshot initapp");
                             if(uid == data.key){
                                 role = data.val().role;
+                                if(role!="superuser")
+                                    $(".manager-only").hide();
+                                else
+                                    $(".user-only").hide();
                                 getCurrentAppointments(role);
                             }
                          });

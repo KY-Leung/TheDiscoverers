@@ -204,14 +204,30 @@ function approveCases(){
 
 
  function initApp() {
+            var uid;
+            var role;
+            var db = firebase.database();
+            var usersRef = db.ref("users");
             var logoutbtn = document.getElementById('logoutbtn');
             var approvebtn = document.getElementById('approvebtn');
 
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
+                    uid = user.uid;
                     console.log("in initapp");
+                    var ref3 =usersRef.orderByKey().once("value", function(snapshot) {
+                         snapshot.forEach(function(data) {
+                            console.log(role + " inside snapshot initapp");
+                            if(uid == data.key){
+                                role = data.val().role;
+                                if(role!="superuser")
+                                    $(".manager-only").hide();
+                                else
+                                    $(".user-only").hide();
+                            }
+                         });
+                     });
                     getCases();
-                    var db = firebase.database();
                     var scoresRef = db.ref("Cases");
 
                     approvebtn.addEventListener('click', function() {
