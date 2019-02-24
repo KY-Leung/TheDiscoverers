@@ -1,6 +1,6 @@
 # One-Stop Health
 
-![Home Page](img/Home Page.png)
+![Home Page](img/Home%20Page.png)
 
 
 
@@ -42,7 +42,7 @@ The target users of the application would be:
 
 ## Architectural Diagram
 
-![Architectural Diagram](img\Architectural Diagram.png)
+![Architectural Diagram](img\Architectural%20Diagram.png)
 
 
 
@@ -50,11 +50,11 @@ The target users of the application would be:
 
 ### Home
 
-![Home Page](img/Home Page.png)
+![Home Page](img/Home%20Page.png)
 
 ### Login
 
-![Login Page](img/Login Page.png)
+![Login Page](img/Login%20Page.png)
 
 ### Booking
 
@@ -62,8 +62,8 @@ The target users of the application would be:
 
 ### Modify Booking
 
-![Modify Booking](img/Modify Booking.png)
+![Modify Booking](img/Modify%20Booking.png)
 
 ### Past Booking
 
-![Past Booking](img/Past Booking.png)
+![Past Booking](img/Past%20Booking.png)
