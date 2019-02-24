@@ -67,3 +67,13 @@ The target users of the application would be:
 ### Past Booking
 
 ![Past Booking](img/Past%20Booking.png)
+
+
+
+# Project Team Members
+
+* Adam Tan Teng Guan
+* Chua Chin Aik
+* Leung Kai Yiu
+* Toh Zhu Er Joel
+* Woon Tian Loong Jefferson
